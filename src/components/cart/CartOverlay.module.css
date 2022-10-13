@@ -1,0 +1,126 @@
+.cartIconWrapper {
+  margin-left: 130px;
+}
+
+.cartIcon {
+  position: relative;
+  cursor: pointer;
+}
+
+.cartIcon span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  line-height: 1;
+  top: -7px;
+  left: -13px;
+  width: 18px;
+  height: 18px;
+  background-color: white;
+  border-radius: 50%;
+  color: black;
+}
+
+/* Overlay */
+
+.overlayWrapper {
+  background-color: var(--searchResults-bg);
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  transform: translateX(100%);
+  transition: all 350ms ease;
+  position: absolute;
+  padding: 6px 10px;
+  top: 80px;
+  right: 0;
+  width: 370px;
+  z-index: 11;
+}
+
+.totalWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.totalWrapper p {
+  font-size: 1.125rem;
+  font-family: var(--main-font);
+  font-weight: 600;
+  padding: 5px 0 10px;
+  color: white;
+}
+
+.totalWrapper p span {
+  font-size: 1.1rem;
+}
+
+.noResults {
+  font-size: 1.125rem;
+  font-family: 'Nunito';
+  font-weight: 600;
+  text-align: center;
+  margin: 30px 0;
+  color: white;
+}
+
+.viewCartBtn button {
+  font-size: 0.975rem;
+  font-family: var(--main-font);
+  font-weight: 600;
+  line-height: 1;
+  transition: all 150ms ease;
+  border: 1px solid white;
+  background-color: transparent;
+  padding: 8px;
+  margin: 8px 0;
+  width: 100%;
+  color: white;
+  cursor: pointer;
+}
+
+.viewCartBtn button:hover {
+  border-color: var(--lighter-blue-v2);
+  color: var(--lighter-blue-v2);
+}
+
+/* Overlay */
+
+@media only screen and (max-width: 1300px) {
+  .cartIconWrapper {
+    margin-left: 90px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .cartIcon span {
+    top: -3px;
+    left: -18px;
+  }
+
+  .overlayWrapper {
+    top: 144px;
+  }
+}
+
+@media only screen and (max-width: 735px) {
+  .overlayWrapper {
+    top: 198px;
+    padding: 4px 8px;
+    width: calc(95vw - 16px);
+    max-width: 465px;
+  }
+
+  .totalWrapper p {
+    font-size: 1rem;
+  }
+
+  .viewCartBtn button {
+    font-size: 0.9rem;
+  }
+}
+
+.displayOverlay {
+  transform: translateX(0);
+}

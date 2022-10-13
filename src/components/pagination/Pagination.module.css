@@ -1,0 +1,47 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--light);
+  border-radius: 2px;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.arrow svg {
+  width: 14px;
+  height: 14px;
+}
+
+.wrapper ul {
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+}
+
+.wrapper ul li {
+  cursor: pointer;
+}
+
+.wrapper ul li p {
+  font-size: 1.125rem;
+  font-family: var(--secondary-font);
+  font-weight: 600;
+  margin: 0 5px;
+  color: white;
+}
+
+.active p {
+  border-radius: 2px;
+  background-color: var(--light);
+  padding: 1px 7px;
+  color: var(--dark-grey) !important;
+}

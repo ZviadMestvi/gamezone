@@ -1,0 +1,252 @@
+.nav {
+  background-color: #0a0a0a;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.categories {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 1280px;
+}
+
+.category {
+  position: relative;
+  padding: 7px 20.6px;
+  transition: background 0.2s linear;
+  cursor: pointer;
+}
+
+.category span {
+  margin-left: 8px;
+}
+
+.category span img {
+  transition: transform 0.2s linear;
+}
+
+.category:hover {
+  background-color: var(--light-blue);
+}
+
+.category:hover .title {
+  color: #0a0a0a;
+}
+
+.category:hover span img {
+  filter: invert(1);
+  transform: rotate(-180deg);
+}
+
+.category:hover .categoryMenu {
+  display: block;
+}
+
+.category:hover .catalogueMenu {
+  display: flex;
+}
+
+.title {
+  font-size: 1.125rem;
+  font-family: var(--main-font);
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+}
+
+.mobileArrowDown {
+  display: none;
+}
+
+.categoryMenu {
+  display: none;
+  position: absolute;
+  box-shadow: 0 3px 12px 1px black;
+  background-color: var(--dark-grey);
+  padding: 18px 12px;
+  top: 100%;
+  left: 0;
+  width: 260px;
+  z-index: 2;
+}
+
+.categoryMenu ul li p {
+  font-size: 0.875rem;
+  font-family: var(--secondary-font);
+  font-weight: 400;
+  text-align: start;
+  margin: 4px 20px 4px 0;
+  white-space: nowrap;
+  color: white;
+}
+
+.catalogueMenuWrapper {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+.catalogueMenu {
+  display: none;
+  background-color: var(--dark-grey);
+  box-shadow: 0 3px 12px 1px black;
+  white-space: nowrap;
+  padding: 20px;
+  width: 100%;
+}
+
+.menuContainer {
+  margin-right: 140px;
+}
+
+.menuContainer div {
+  margin-bottom: 15px;
+}
+
+.menuContainer div h3 {
+  font-size: 1.125rem;
+  font-family: var(--secondary-font);
+  font-weight: 800;
+  margin-bottom: 4px;
+  color: white;
+}
+
+.menuContainer div ul li p {
+  font-size: 0.875rem;
+  font-family: var(--secondary-font);
+  margin-bottom: 2px;
+  color: white;
+}
+
+.categoryMenu ul li:hover p,
+.menuContainer div h3:hover,
+.menuContainer div ul li:hover p {
+  color: var(--light-blue);
+}
+
+@media only screen and (max-width: 1300px) {
+  .categories {
+    width: 980px;
+  }
+
+  .category {
+    padding: 6px;
+  }
+
+  .category p {
+    font-size: 1rem;
+  }
+
+  .categoryMenu {
+    min-width: 199px;
+  }
+
+  .catalogueMenu {
+    max-height: 80vh;
+  }
+
+  .menuContainer {
+    margin-right: 65px;
+  }
+
+  .menuContainer div {
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .nav {
+    display: none;
+  }
+
+  .nav.show {
+    display: block;
+  }
+
+  .categories {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .category {
+    padding: 0;
+  }
+
+  .category p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 10px;
+    text-align: start;
+  }
+
+  .arrowDown {
+    display: none;
+  }
+
+  .mobileArrowDown {
+    display: block;
+    padding: 2px 6px;
+    border: 1px solid var(--light-blue);
+  }
+
+  .category:hover .categoryMenu,
+  .category:hover .catalogueMenu {
+    display: none;
+  }
+
+  .category:hover span img {
+    transform: rotate(0deg);
+  }
+
+  .category:hover .mobileArrowDown {
+    border-color: #0a0a0a;
+  }
+
+  .categoryMenu {
+    position: static;
+    box-shadow: none;
+    padding: 5px;
+    width: 100%;
+  }
+
+  .categoryMenu ul li p {
+    font-size: 0.9rem;
+    padding: 8px 0 10px 5px;
+  }
+
+  .catalogueMenu {
+    max-height: none;
+  }
+
+  .catalogueMenuWrapper {
+    position: static;
+    box-shadow: none;
+  }
+
+  .catalogueMenu {
+    padding: 10px;
+    box-shadow: none;
+  }
+
+  .menuContainer div ul {
+    display: none;
+  }
+
+  .menuContainer div h3 {
+    font-size: 1rem;
+    padding: 6px 0 6px 5px;
+    margin: 0;
+  }
+}
+
+.activeDropdownMenu {
+  display: block !important;
+}
+
+.activeDropdownArrow {
+  transform: rotate(180deg) !important;
+}

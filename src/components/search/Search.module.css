@@ -1,0 +1,146 @@
+.searchWrapper {
+  position: relative;
+}
+
+.searchBar {
+  background-color: white;
+  border-radius: 20px;
+  margin-bottom: 18px;
+  position: relative;
+  top: 9px;
+}
+
+.searchBar input {
+  font-size: 1rem;
+  font-family: var(--main-font);
+  background-color: var(--dark-grey);
+  border: 1.5px solid white;
+  border-radius: 22px;
+  padding-left: 16px;
+  width: 460px;
+  height: 27px;
+  outline: none;
+  color: white;
+}
+
+.searchBar input::placeholder {
+  color: #a3a3a3;
+}
+
+.searchBar button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background: transparent;
+  padding: 2px 9px;
+  transition: all 100ms ease;
+  border-radius: 0 22px 22px 0;
+  border: 0;
+  border-left: 1px solid white;
+  right: 4px;
+  top: 4px;
+  outline: 0;
+  cursor: pointer;
+}
+
+.searchBar button:hover {
+  background: white;
+}
+
+.searchBar button:hover svg path {
+  fill: #000;
+}
+
+/* Search Results */
+
+.resultsWrapper {
+  display: none;
+  background-color: var(--searchResults-bg);
+  padding: 8px 10px 14px;
+  box-shadow: 0px 0px 5px 1px #000000;
+  transition: all 100ms ease;
+  position: absolute;
+  width: calc(100% - 20px);
+  z-index: 11;
+}
+
+.itemCountWrapper {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--dark-grey);
+  padding: 7px 12px;
+  color: white;
+}
+
+.itemCountWrapper p {
+  font-size: 1rem;
+  font-family: var(--secondary-font);
+  font-weight: 600;
+}
+
+.productsWrapper {
+  margin: 10px 0;
+}
+
+.viewAllBtn button {
+  font-size: 0.975rem;
+  font-family: var(--main-font);
+  font-weight: 600;
+  line-height: 1;
+  transition: all 150ms ease;
+  border: 1px solid white;
+  background-color: transparent;
+  padding: 9px;
+  width: 100%;
+  color: white;
+  cursor: pointer;
+}
+
+.viewAllBtn button:hover {
+  border-color: var(--lighter-blue-v2);
+  color: var(--lighter-blue-v2);
+}
+
+.noResults {
+  font-size: 1.125rem;
+  font-family: 'Nunito';
+  font-weight: 600;
+  text-align: center;
+  margin: 50px 0;
+  color: white;
+}
+
+/* Search Results */
+
+@media only screen and (max-width: 1000px) {
+  .searchBar {
+    margin-top: 5px;
+  }
+}
+
+@media only screen and (max-width: 735px) {
+  .searchWrapper {
+    width: calc(100% - 15px);
+  }
+
+  .searchBar input {
+    width: 100%;
+  }
+
+  .searchBar button {
+    right: -14px;
+  }
+
+  .resultsWrapper {
+    width: calc(100% - 2px);
+  }
+
+  .viewAllBtn button {
+    padding: 8px;
+  }
+}
+
+.displayOverlay {
+  display: block;
+}

@@ -1,0 +1,92 @@
+.wrapper {
+  display: flex;
+  position: relative;
+  margin: 0 8px 0 0;
+}
+
+.wrapper:hover {
+  background-color: rgba(17, 17, 17, 0.4);
+}
+
+.productInfo {
+  margin-top: 7px;
+  /* margin-left: 8px; */
+  color: white;
+}
+
+.coverWrapper {
+  padding: 2px;
+}
+
+.productInfo p {
+  font-size: 0.9rem;
+  font-family: var(--third-font);
+  font-weight: 600;
+  width: 95%;
+}
+
+.productInfo p span {
+  font-size: 0.8rem;
+  text-decoration: line-through;
+  margin-left: 4px;
+  color: var(--light-grey);
+}
+
+.btnsWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: absolute;
+  right: 0;
+  height: 100%;
+}
+
+.btnsWrapper button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  background-color: transparent;
+  transition: all 150ms ease;
+  width: 24px;
+  height: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+.btnsWrapper button img {
+  transition: all 200ms ease;
+}
+
+.btnsWrapper button:nth-child(3) {
+  transform: rotate(180deg);
+}
+
+#xIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.btnsWrapper button:hover {
+  border-color: var(--light-blue);
+}
+
+.btnsWrapper button:hover img {
+  filter: sepia(68%) saturate(1983%) hue-rotate(91deg) brightness(104%)
+    contrast(92%); /* light blue */
+}
+
+@media only screen and (max-width: 735px) {
+  .coverWrapper img {
+    padding: 2px 0;
+  }
+
+  .productInfo p {
+    font-size: 0.875rem;
+  }
+
+  .btnsWrapper button {
+    width: 22px;
+    height: 22px;
+  }
+}

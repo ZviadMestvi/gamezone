@@ -1,0 +1,103 @@
+.wrapper {
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.wrapper:hover .iconsWrapper,
+.wrapper:hover .paginationWrapper {
+  visibility: visible;
+  opacity: 1;
+}
+
+.postersWrapper {
+  display: flex;
+  transition: all 500ms ease 0s;
+  width: calc(5 * 100vw);
+}
+
+.poster img {
+  width: 100%;
+  height: auto;
+}
+
+.iconsWrapper {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  transition: visibility 0s, opacity 300ms ease 0s;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.iconsWrapper svg {
+  padding: 26px 12px;
+  margin: 0 50px;
+  background-color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+.paginationWrapper {
+  position: absolute;
+  left: 50%;
+  bottom: 25px;
+  transform: translate(-50%, 0);
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: visibility 0s, opacity 300ms ease 0s;
+  padding: 10px 9px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.pagination {
+  display: flex;
+}
+
+.pagination div {
+  width: 3px;
+  height: 14px;
+  margin: 0 3px;
+  background-color: var(--light-blue);
+  transition: width 300ms ease 0s;
+  cursor: pointer;
+}
+
+.currentPoster {
+  width: 14px !important;
+}
+
+@media only screen and (max-width: 1000px) {
+  .iconsWrapper {
+    height: 100%;
+  }
+
+  .iconsWrapper svg {
+    padding: 0 12px;
+    margin: 0;
+    width: 20px;
+    height: 100%;
+  }
+
+  .paginationWrapper {
+    bottom: 0;
+    padding: 4px 0;
+    width: 100%;
+  }
+
+  .pagination {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pagination div {
+    width: 18px;
+    height: 2px;
+  }
+
+  .currentPoster {
+    height: 12px !important;
+  }
+}

@@ -1,10 +1,44 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --dark: #0a0a0a;
+  --dark-grey: #111111;
+  --grey: #191919;
+  --product-bg: #101113e6;
+  --light-grey: #848484;
+  --light-grey-v2: #a3a3a3;
+  --searchResults-bg: #202328;
+  --light: #eeeeee;
+  --light-blue: #1af5de;
+  --lighter-blue: #14ffeb;
+  --lighter-blue-v2: #00f4e1;
+  --product-blue: #00bae0;
+  --sale-price: #07ffb5;
+  --main-font: 'Jura';
+  --secondary-font: 'Nunito Sans';
+  --third-font: 'Nunito';
+  --fourth-font: 'Quicksand';
+}
+
+* {
   margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+html {
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #1b1d1e;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 code {

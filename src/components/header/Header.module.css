@@ -1,0 +1,81 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  background-color: var(--dark-grey);
+  height: 81px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 1280px;
+}
+
+.mobileHeader {
+  display: none;
+}
+
+.logoWrapper {
+  background-image: url(../../assets/gamezonelogo.webp);
+  width: 219px;
+  height: 46px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1300px) {
+  .container {
+    width: 980px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .wrapper {
+    padding: 0 10px;
+    height: 100%;
+  }
+
+  .container {
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    width: 100%;
+  }
+
+  .logoWrapper {
+    margin-top: 5px;
+  }
+
+  .overlay {
+    display: none;
+  }
+
+  .mobileHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0a0a0a;
+    padding: 10px;
+  }
+
+  .menuIconWrapper {
+    display: flex;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+  }
+
+  .menuIconWrapper img {
+    margin-bottom: 2px;
+  }
+
+  .menuIconWrapper h5 {
+    font-size: 1rem;
+    font-family: var(--secondary-font);
+    font-weight: 900;
+    margin-left: 5px;
+    line-height: 1;
+    width: 50%;
+  }
+}

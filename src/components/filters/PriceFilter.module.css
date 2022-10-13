@@ -1,0 +1,175 @@
+.wrapper {
+  border-bottom: 2px solid white;
+}
+
+.filterName {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 14px 6px 9px;
+  background-color: var(--dark-grey);
+  cursor: pointer;
+}
+
+.filterName h2 {
+  font-size: 1.25rem;
+  font-family: var(--secondary-font);
+  font-weight: bold;
+  color: white;
+}
+
+.filterName img {
+  transition: transform 0.1s ease;
+  width: 12px;
+  height: 12px;
+}
+
+.filterBody {
+  background-color: var(--dark-grey);
+  padding: 20px 12px 20px 10px;
+}
+
+.slider {
+  margin: 0 auto;
+  background-color: var(--light-grey-v2);
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 6px;
+}
+
+.sliderRange {
+  background-color: var(--light);
+  width: 80%;
+  height: 100%;
+  position: absolute;
+  right: 0;
+}
+
+.leftThumb,
+.rightThumb {
+  background-color: var(--light);
+  width: 21px;
+  height: 20px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: -7px;
+  cursor: pointer;
+}
+
+.leftThumb {
+  left: 20%;
+}
+
+.rightThumb {
+  right: 0;
+}
+
+/* price range input */
+
+.rangeInput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 35px 0 15px 0;
+}
+
+.rangeInput input[type='number'] {
+  font-size: 1.1rem;
+  font-family: var(--third-font);
+  font-weight: 800;
+  background-color: var(--light);
+  border-radius: 4px;
+  padding: 0 7px;
+  border: none;
+  outline: none;
+  width: 60px;
+  height: 30px;
+}
+
+.rangeInput input[type='number']::placeholder {
+  font-size: 1rem;
+  color: #a3a3a3;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.rangeDash {
+  width: 12px;
+  height: 5px;
+  background-color: var(--light);
+  margin: 0 10px;
+}
+
+.rangeInput button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-family: var(--third-font);
+  font-weight: 800;
+  border-radius: 4px;
+  margin-left: 10px;
+  padding: 15px 10px;
+  border: none;
+  outline: none;
+  height: 30px;
+  cursor: pointer;
+}
+
+/* price range input */
+
+@media only screen and (max-width: 1300px) {
+  .main {
+    width: 980px;
+  }
+
+  .rangeInput input[type='number'] {
+    font-size: 1rem;
+    line-height: 1;
+    padding: 0px 6px;
+    width: 46px;
+    height: 26px;
+  }
+
+  .rangeDash {
+    margin: 0 8px;
+    width: 10px;
+  }
+
+  .rangeInput button {
+    font-size: 0.975rem;
+    margin-left: 5px;
+    padding: 13px 10px;
+    height: 26px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .rangeInput input[type='number'] {
+    font-size: 1.1rem;
+    padding: 0 7px;
+    width: 60px;
+    height: 30px;
+  }
+
+  .rangeDash {
+    margin: 0 10px;
+    width: 12px;
+  }
+
+  .rangeInput button {
+    font-size: 1rem;
+    margin-left: 10px;
+    padding: 15px 10px;
+    outline: none;
+    height: 30px;
+  }
+}
+
+.activeFilter {
+  transform: rotate(-180deg);
+}

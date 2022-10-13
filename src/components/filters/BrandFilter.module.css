@@ -1,0 +1,63 @@
+.filterName {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 14px 6px 9px;
+  background-color: var(--dark-grey);
+  cursor: pointer;
+}
+
+.filterName h2 {
+  font-size: 1.25rem;
+  font-family: var(--secondary-font);
+  font-weight: bold;
+  color: white;
+}
+
+.filterName img {
+  transition: transform 0.1s ease;
+  width: 12px;
+  height: 12px;
+}
+
+.categoryList {
+  background-color: var(--dark-grey);
+  padding: 2px 0 8px 0;
+}
+
+.categoryList li {
+  padding: 5px 0 5px 10px;
+  position: relative;
+}
+
+.categoryList li input {
+  display: none;
+}
+
+.categoryList li label {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  font-family: var(--third-font);
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+}
+
+.checkmark {
+  margin-right: 8px;
+  border: 1px solid white;
+  width: 13px;
+  height: 13px;
+}
+
+.checkmark.active {
+  background-color: var(--light);
+}
+
+@media only screen and (max-width: 1000px) {
+}
+
+.activeFilter {
+  transform: rotate(-180deg);
+}

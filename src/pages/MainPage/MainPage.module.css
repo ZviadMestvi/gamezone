@@ -1,0 +1,126 @@
+hr {
+  margin-top: 4em;
+  background-color: var(--product-blue);
+  border: none;
+  height: 2px;
+}
+
+.recommendedWrapper {
+  margin-top: 3em;
+  padding: 1px 0 4em;
+  background-color: rgb(17, 17, 17, 0.9);
+}
+
+.boxesWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 5em auto;
+  width: 1220px;
+}
+
+.socialBox {
+  text-align: center;
+  width: 44%;
+}
+
+.socialBox {
+  padding: 1.4em 2em 1.8em;
+  background-color: var(--dark-grey);
+}
+
+.socialBox h1 {
+  font-size: 1.5rem;
+  font-family: var(--secondary-font);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--product-blue);
+}
+
+.socialBox p {
+  font-size: 0.75rem;
+  font-family: var(--secondary-font);
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 8px 0px 20px;
+  color: white;
+}
+
+.subscribeWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.socialBox input {
+  font-size: 1rem;
+  font-family: var(--main-font);
+  font-weight: 700;
+  border: none;
+  outline: none;
+  margin-right: 5px;
+  padding: 0 10px;
+  width: 74%;
+  height: 30px;
+}
+
+.socialBox input::placeholder {
+  color: #a3a3a3;
+}
+
+.socialBox button {
+  font-size: 0.75rem;
+  font-family: var(--main-font);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 0 30px;
+  border: none;
+  outline: none;
+  background-color: var(--product-blue);
+  height: 30px;
+  cursor: pointer;
+}
+
+.logosWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.logosWrapper img {
+  margin: 0 4px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1300px) {
+  .boxesWrapper {
+    width: 1040px;
+  }
+
+  .socialBox {
+    width: 43%;
+  }
+}
+
+@media only screen and (max-width: 1070px) {
+  .boxesWrapper {
+    flex-direction: column;
+    align-items: center;
+    margin: 2em auto;
+    width: 100%;
+  }
+
+  .socialBox {
+    margin: 0.4em 0;
+    width: 650px;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .boxesWrapper {
+    width: calc(100% - 100px);
+  }
+
+  .socialBox {
+    width: 100%;
+  }
+}
