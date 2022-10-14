@@ -294,15 +294,16 @@
     width: 100%;
   }
 
+  .buyWrapper {
+    position: sticky;
+    bottom: 10px;
+  }
+
   .detailsWrapper {
     display: block;
     border: 1px solid #eee;
     margin-top: 10px;
     padding: 18px 20px;
-    position: sticky;
-    top: 0;
-    /* bottom: 20px; */
-    /* width: calc(100% - 23px); */
   }
 
   .detailsWrapper h4,

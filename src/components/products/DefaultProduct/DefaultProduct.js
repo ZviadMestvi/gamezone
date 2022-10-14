@@ -1,7 +1,7 @@
 import classes from './DefaultProduct.module.css';
 import bf2042CoverMobile from '../../../assets/mobile-pics/bf2042-cover-mobile.webp';
+import barChartIcon from '../../../assets/bar-chart.svg';
 import cartIcon from '../../../assets/shoppingCartIcon.svg';
-import eyeIcon from '../../../assets/eyeIcon.svg';
 
 const DefaultProduct = props => {
   return (
@@ -25,7 +25,7 @@ const DefaultProduct = props => {
           onClick={() => (window.location.href = 'game')}
         />
         <button className={classes.viewBtn}>
-          <img src={eyeIcon} alt="eye icon" />
+          <img width="15" heigth="15" src={barChartIcon} alt="compare icon" />
         </button>
       </div>
       <div
