@@ -1,13 +1,13 @@
-import AOCposter from './assets/AOC-hero.webp';
-import AOCposterMobile from './assets/mobile-pics/AOC-hero-mobile.webp';
-import eldenRingPoster from './assets/elden-ring-hero.webp';
-import eldenRingPosterMobile from './assets/mobile-pics/elden-ring-hero-mobile.webp';
-import nintendoPoster from './assets/nintendo-hero.webp';
-import nintendoPosterMobile from './assets/mobile-pics/nintendo-hero-mobile.webp';
-import saleBfposter from './assets/bf-hero.webp';
-import saleBfposterMobile from './assets/mobile-pics/bf-hero-mobile.webp';
-import vanguardPoster from './assets/vanguard-hero.webp';
-import vanguardPosterMobile from './assets/mobile-pics/vanguard-hero-mobile.webp';
+import AOCposter from './assets/hero-pics/AOC-hero.webp';
+import AOCposterMobile from './assets/hero-pics/AOC-hero-mobile.webp';
+import eldenRingPoster from './assets/hero-pics/elden-ring-hero.webp';
+import eldenRingPosterMobile from './assets/hero-pics/elden-ring-hero-mobile.webp';
+import nintendoPoster from './assets/hero-pics/nintendo-hero.webp';
+import nintendoPosterMobile from './assets/hero-pics/nintendo-hero-mobile.webp';
+import saleBfposter from './assets/hero-pics/bf-hero.webp';
+import saleBfposterMobile from './assets/hero-pics/bf-hero-mobile.webp';
+import vanguardPoster from './assets/hero-pics/vanguard-hero.webp';
+import vanguardPosterMobile from './assets/hero-pics/vanguard-hero-mobile.webp';
 
 export const postersArr = [
   {

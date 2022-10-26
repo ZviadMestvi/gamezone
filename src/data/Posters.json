@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1640,
+    "alt": "AOC poster",
+    "desktopPoster": "../assets/hero-pics/AOC-hero.webp",
+    "mobilePoster": "../assets/hero-pics/AOC-hero-mobile.webp"
+  },
+  {
+    "id": 1501,
+    "alt": "Elden ring poster",
+    "desktopPoster": "../assets/hero-pics/elden-ring-hero.webp",
+    "mobilePoster": "../assets/hero-pics/elden-ring-hero-mobile.webp"
+  },
+  {
+    "id": 2312,
+    "alt": "Nintendo poster",
+    "desktopPoster": "../assets/hero-pics/nintendo-hero.webp",
+    "mobilePoster": "../assets/hero-pics/nintendo-hero-mobile.webp"
+  },
+  {
+    "id": 1323,
+    "alt": "Battlefield 2042 poster",
+    "desktopPoster": "../assets/hero-pics/bf-hero.webp",
+    "mobilePoster": "../assets/hero-pics/bf-hero-mobile.webp"
+  },
+  {
+    "id": 7421,
+    "alt": "COD Vanguard poster",
+    "desktopPoster": "../assets/hero-pics/vanguard-hero.webp",
+    "mobilePoster": "../assets/hero-pics/vanguard-hero-mobile.webp"
+  }
+]
