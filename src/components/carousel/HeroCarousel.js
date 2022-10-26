@@ -1,8 +1,7 @@
 import { useRef, useState } from 'react';
 
 import classes from './HeroCarousel.module.css';
-// import { postersArr } from '../../HelperConsts';
-import postersArr from '../../data/Posters.json';
+import { postersArr } from '../../HelperConsts';
 
 const HeroCarousel = () => {
   const heroRef = useRef();
