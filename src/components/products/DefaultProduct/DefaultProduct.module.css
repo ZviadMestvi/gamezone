@@ -5,6 +5,7 @@
   padding: 15px;
   position: relative;
   min-width: 210px;
+  max-width: 228px;
   overflow: hidden;
 }
 
@@ -64,6 +65,11 @@
   height: 14px;
   position: relative;
   top: 1px;
+}
+
+/* ეს საჭიროა რომ button-ებმა ერთმანეთი არ გადაკვეთონ */
+#wishlistBtn {
+  top: 40px;
 }
 
 .productInfo {
@@ -154,12 +160,3 @@
   height: 95%;
   filter: invert(1);
 }
-
-@media only screen and (max-width: 1300px) {
-}
-
-/* @media only screen and (max-width: 515px) {
-  .wrapper {
-    width: 100%;
-  }
-} */

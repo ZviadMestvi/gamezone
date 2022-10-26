@@ -45,3 +45,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+a {
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--dark-grey);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: rgba(26, 245, 222, 0.9);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(26, 245, 222, 1);
+}

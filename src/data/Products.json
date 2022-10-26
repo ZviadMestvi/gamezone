@@ -1,0 +1,154 @@
+[
+  {
+    "id": 120023,
+    "name": "PS5 Sekiro",
+    "category": "games",
+    "subcategory": "PS5 games",
+    "releaseDate": "2019-03-21",
+    "price": 29,
+    "onSale": false,
+    "inStock": true
+  },
+  {
+    "id": 120024,
+    "name": "XBOX Sekiro",
+    "category": "games",
+    "subcategory": "XBOX games",
+    "releaseDate": "2019-03-21",
+    "price": 29,
+    "onSale": false,
+    "inStock": true
+  },
+  {
+    "id": 120025,
+    "name": "PS5 Call of Duty: Modern Warfare",
+    "category": "games",
+    "subcategory": "PS5 games",
+    "releaseDate": "2019-10-25",
+    "price": 50,
+    "onSale": false,
+    "inStock": true
+  },
+  {
+    "id": 120026,
+    "name": "XBOX Call of Duty: Modern Warfare",
+    "category": "games",
+    "subcategory": "XBOX games",
+    "releaseDate": "2019-10-25",
+    "price": 50,
+    "onSale": false,
+    "inStock": true
+  },
+  {
+    "id": 120027,
+    "name": "PS5 Battlefield 2042 ",
+    "category": "games",
+    "subcategory": "PS5 games",
+    "releaseDate": "2021-11-19",
+    "price": 60,
+    "salePrice": 20,
+    "onSale": true,
+    "inStock": true
+  },
+  {
+    "id": 120028,
+    "name": "XBOX Battlefield 2042",
+    "category": "games",
+    "subcategory": "XBOX games",
+    "releaseDate": "2021-11-19",
+    "price": 60,
+    "salePrice": 20,
+    "onSale": true,
+    "inStock": true
+  },
+  {
+    "id": 120029,
+    "name": "PS5 Battlefield 1",
+    "category": "games",
+    "subcategory": "PS5 games",
+    "releaseDate": "2016-10-21",
+    "price": 25,
+    "onSale": false,
+    "inStock": true
+  },
+  {
+    "id": 120030,
+    "name": "XBOX Battlefield 1",
+    "category": "games",
+    "subcategory": "XBOX games",
+    "releaseDate": "2016-10-21",
+    "price": 25,
+    "onSale": false,
+    "inStock": true
+  },
+  {
+    "id": 120031,
+    "name": "PS5 Call of Duty: Modern Warfare II",
+    "category": "games",
+    "subcategory": "PS5 games",
+    "releaseDate": "2022-10-28",
+    "price": 60,
+    "onSale": false,
+    "inStock": false
+  },
+  {
+    "id": 120042,
+    "name": "XBOX Call of Duty: Modern Warfare II",
+    "category": "games",
+    "subcategory": "XBOX games",
+    "releaseDate": "2022-10-28",
+    "price": 60,
+    "onSale": false,
+    "inStock": false
+  },
+  {
+    "id": 120033,
+    "name": "PS5 Grand Theft Auto: VI",
+    "category": "games",
+    "subcategory": "PS5 games",
+    "releaseDate": "2130-05-05",
+    "price": 150,
+    "onSale": false,
+    "inStock": false
+  },
+  {
+    "id": 120034,
+    "name": "XBOX Grand Theft Auto: VI",
+    "category": "games",
+    "subcategory": "XBOX games",
+    "releaseDate": "2130-05-05",
+    "price": 150,
+    "onSale": false,
+    "inStock": false
+  },
+  {
+    "id": 120035,
+    "name": "PS5 UNCHARTED™: Legacy Of Thieves Collection",
+    "category": "games",
+    "subcategory": "PS5 games",
+    "releaseDate": "2022-10-19",
+    "price": 60,
+    "onSale": false,
+    "inStock": true
+  },
+  {
+    "id": 120036,
+    "name": "PS5 Darksiders III",
+    "category": "games",
+    "subcategory": "PS5 games",
+    "releaseDate": "2018-11-27",
+    "price": 30,
+    "onSale": false,
+    "inStock": true
+  },
+  {
+    "id": 120037,
+    "name": "XBOX Darksiders III",
+    "category": "games",
+    "subcategory": "XBOX games",
+    "releaseDate": "2018-11-27",
+    "price": 30,
+    "onSale": false,
+    "inStock": true
+  }
+]

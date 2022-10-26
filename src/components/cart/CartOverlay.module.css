@@ -56,6 +56,11 @@
   font-size: 1.1rem;
 }
 
+.productsWrapper {
+  max-height: 348px;
+  overflow-y: auto;
+}
+
 .noResults {
   font-size: 1.125rem;
   font-family: 'Nunito';
@@ -123,4 +128,17 @@
 
 .displayOverlay {
   transform: translateX(0);
+}
+
+.productsWrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.productsWrapper::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: var(--light);
+}
+
+.productsWrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--light);
 }

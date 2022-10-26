@@ -15,6 +15,7 @@
   font-size: 1.1875rem; /* 19px */
   font-family: var(--main-font);
   font-weight: 600;
+  text-transform: capitalize;
   color: var(--light);
 }
 
@@ -45,7 +46,6 @@
   background-color: var(--dark-grey);
   border-radius: 10px;
   width: 68%;
-  color: var(--dark-grey);
 }
 
 .allImages {
@@ -111,12 +111,17 @@
   top: 40px;
 }
 
-.inStock {
+.inStock,
+.outOfStock {
   font-size: 1rem;
   font-family: var(--main-font);
   font-weight: 600;
   margin-bottom: 2px;
   color: var(--sale-price);
+}
+
+.outOfStock {
+  color: #ff451f;
 }
 
 .detailsWrapper h4 {
@@ -126,12 +131,29 @@
   color: white;
 }
 
-.detailsWrapper h5 {
+.priceWrapper {
+  margin-bottom: 120px;
+}
+
+.priceWrapper h5 {
   font-size: 1.5rem;
   font-family: var(--main-font);
   font-weight: bold;
-  margin-bottom: 120px;
   color: var(--product-blue);
+}
+
+.priceWrapper h5 span {
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: line-through;
+  margin-left: 5px;
+  color: var(--light-grey);
+}
+
+.onsalePrice {
+  font-size: 1rem;
+  font-family: var(--main-font);
+  color: var(--sale-price);
 }
 
 .detailsWrapper label {

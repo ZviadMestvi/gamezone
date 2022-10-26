@@ -213,6 +213,7 @@
 @media only screen and (max-width: 499px) {
   .wrapper {
     margin: 5px 0;
+    padding: 8px 10px;
   }
 
   .nonSalePrice {
@@ -228,7 +229,7 @@
   }
 
   .btnsWrapper {
-    width: 120px;
+    width: 140px;
   }
 
   .buyBtn {

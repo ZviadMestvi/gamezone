@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 
 import classes from './Search.module.css';
-import SearchProduct from '../products/SearchProduct/SearchProduct';
+// import SearchProduct from '../products/SearchProduct/SearchProduct';
 
 const Search = () => {
   const searchRef = useRef();
@@ -59,12 +59,9 @@ const Search = () => {
         </div>
 
         <div className={classes.productsWrapper}>
-          <SearchProduct />
-          <SearchProduct />
-          <SearchProduct />
-          {/* <p className={classes.noResults}>
+          <p className={classes.noResults}>
             No results found, try another query.
-          </p> */}
+          </p>
         </div>
 
         <div className={classes.viewAllBtn}>

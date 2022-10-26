@@ -1,9 +1,31 @@
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { addToCart } from '../../../store/mainSlice';
+
 import classes from './DefaultProduct.module.css';
-import bf2042CoverMobile from '../../../assets/mobile-pics/bf2042-cover-mobile.webp';
-import barChartIcon from '../../../assets/bar-chart.svg';
+import bf2042CoverMobile from '../../../assets/productsAssets/bf2042-cover.webp';
+import compareIcon from '../../../assets/barChart.svg';
+import wishlistIcon from '../../../assets/heartIcon.svg';
 import cartIcon from '../../../assets/shoppingCartIcon.svg';
 
 const DefaultProduct = props => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const navigateToProduct = () => {
+    navigate(
+      `/products/${props.data.category}/${props.data.subcategory}/${props.data.name}`
+    );
+  };
+
+  const addProductToCart = () => {
+    dispatch(
+      addToCart({
+        data: props.data,
+        quantity: 1,
+      })
+    );
+  };
+
   return (
     <div
       className={`${classes.wrapper} ${props.grid ? classes.gridWrapper : ''}`}
@@ -17,15 +39,18 @@ const DefaultProduct = props => {
       )}
       <div className={classes.coverWrapper}>
         <img
-          width="147"
-          height="179"
+          width="208"
+          height="182"
           id={classes.cover}
           src={bf2042CoverMobile}
-          alt="battlefield 5 cover"
-          onClick={() => (window.location.href = 'game')}
+          alt={props.data.name}
+          onClick={navigateToProduct}
         />
         <button className={classes.viewBtn}>
-          <img width="15" heigth="15" src={barChartIcon} alt="compare icon" />
+          <img width="15" heigth="15" src={compareIcon} alt="compare icon" />
+        </button>
+        <button id={classes.wishlistBtn} className={classes.viewBtn}>
+          <img width="15" heigth="15" src={wishlistIcon} alt="wishlist icon" />
         </button>
       </div>
       <div
@@ -56,8 +81,10 @@ const DefaultProduct = props => {
         </div>
 
         <div className={classes.btnsWrapper}>
-          <button className={classes.buyBtn}>Buy</button>
-          <button className={classes.addToCartBtn}>
+          <button className={classes.buyBtn} onClick={navigateToProduct}>
+            Buy
+          </button>
+          <button className={classes.addToCartBtn} onClick={addProductToCart}>
             <img src={cartIcon} alt="cart icon" />
           </button>
         </div>

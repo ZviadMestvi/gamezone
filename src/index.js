@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store/store';
 
-import { AppContextProvider } from './store/context';
 import App from './App';
 import './index.css';
 
@@ -16,9 +17,9 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <AppContextProvider>
+  <Provider store={store}>
     <React.StrictMode>
       <RouterProvider router={router} />
     </React.StrictMode>
-  </AppContextProvider>
+  </Provider>
 );

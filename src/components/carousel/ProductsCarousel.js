@@ -1,12 +1,22 @@
 import { useState } from 'react';
-import { testProducts } from '../../HelperConsts';
+import { useNavigate } from 'react-router-dom';
 
 import classes from './ProductsCarousel.module.css';
+import products from '../../data/Products.json';
 import DefaultProduct from '../products/DefaultProduct/DefaultProduct';
 import rightCarouselArrow from '../../assets/rightCarouselArrow.svg';
 
 const ProductsCarousel = props => {
+  const navigate = useNavigate();
   const [carouselIndex, setCarouselIndex] = useState(0);
+
+  const navigateTo = () => {
+    navigate('/categories', {
+      state: {
+        title: props.title,
+      },
+    });
+  };
 
   const prevBtnHandler = () => {
     if (carouselIndex === 0) return;
@@ -14,19 +24,17 @@ const ProductsCarousel = props => {
   };
 
   const nextBtnHandler = () => {
-    if (carouselIndex === testProducts.length - 6) return;
+    if (carouselIndex === products.length - 6) return;
     setCarouselIndex(prevState => ++prevState);
   };
 
-  const renderProducts = testProducts.map(product => {
+  const renderProducts = products.map(product => {
     return <DefaultProduct key={product.id} data={product} loading="lazy" />;
   });
 
   return (
     <div className={classes.wrapper}>
-      <h2 onClick={() => (window.location.href = 'categories')}>
-        {props.title}
-      </h2>
+      <h2 onClick={navigateTo}>{props.title}</h2>
       <div className={classes.carouselWrapper}>
         <button
           onClick={prevBtnHandler}

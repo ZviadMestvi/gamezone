@@ -1,23 +1,49 @@
 import { Fragment, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { addToCart } from '../../store/mainSlice';
 
 import classes from './ProductPage.module.css';
-import mwCover from '../../assets/modern-warfare-cover.webp';
-import bfCover from '../../assets/bf2042-cover.webp';
+import products from '../../data/Products.json';
+import mwCover from '../../assets/productsAssets/cod-mw2019/cod-mwCover.webp';
+import bfCover from '../../assets/productsAssets/bf2042-cover.webp';
 import cartIcon from '../../assets/shoppingCartIcon.svg';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 
 const ProductPage = () => {
+  const dispatch = useDispatch();
+  const { title } = useParams();
+  const data = products.find(
+    product => product.name.replace(/%20/, ' ') === title
+  );
   const [mainImage, setMainImage] = useState(mwCover);
+  const [qty, setQty] = useState(1);
+
+  const changeQuantity = e => {
+    setQty(e.target.value);
+  };
+
+  const addProductToCart = () => {
+    const qtyInt = parseInt(qty);
+    if (qtyInt < 1 || qtyInt > 99 || isNaN(qtyInt)) return;
+
+    dispatch(
+      addToCart({
+        data,
+        quantity: qtyInt,
+      })
+    );
+  };
 
   return (
     <Fragment>
       <Header />
       <main className={classes.main}>
         <div>
-          <h1 className={classes.productTitle}>Call of Duty: Modern Warfare</h1>
+          <h1 className={classes.productTitle}>{data.name}</h1>
           <h2 className={classes.path}>
-            Home / Games / Xbox Games / Call of Duty: Modern Warfare
+            Home / {data.category} / {data.subcategory} / {data.name}
           </h2>
         </div>
 
@@ -144,10 +170,32 @@ const ProductPage = () => {
 
           <section className={classes.buyWrapper}>
             <div className={classes.detailsWrapper}>
-              <p className={classes.inStock}>In Stock</p>
-              <h4>Call of Duty: Modern Warfare</h4>
+              {data.inStock ? (
+                <p className={classes.inStock}>In Stock</p>
+              ) : (
+                <p className={classes.outOfStock}>Out of Stock</p>
+              )}
+              <h4>{data.name}</h4>
               <div className={classes.mobilePrice}>
-                <h5>99.00 ₾</h5>
+                {/* <h5>{data.price.toFixed(2)} ₾</h5> */}
+
+                <div className={classes.priceWrapper}>
+                  <h5 className={classes.price}>
+                    <b>
+                      {data.onSale
+                        ? data.salePrice?.toFixed(2)
+                        : data.price.toFixed(2)}{' '}
+                      ₾
+                    </b>
+                    {data.onSale && <span>{data.price.toFixed(2)} ₾</span>}
+                  </h5>
+
+                  {data.onSale && (
+                    <p className={classes.onsalePrice}>
+                      You save: {(data.price - data.salePrice).toFixed(2)} ₾
+                    </p>
+                  )}
+                </div>
 
                 <label htmlFor="quantity">Quantity: </label>
                 <input
@@ -156,11 +204,15 @@ const ProductPage = () => {
                   type="number"
                   autoComplete="off"
                   defaultValue="1"
+                  onChange={changeQuantity}
                 ></input>
 
                 <div className={classes.btnsWrapper}>
                   <button className={classes.buyBtn}>Buy Now</button>
-                  <button className={classes.addToCartBtn}>
+                  <button
+                    className={classes.addToCartBtn}
+                    onClick={addProductToCart}
+                  >
                     <img
                       width="28"
                       height="28"

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import classes from './CategoriesCarousel.module.css';
 import consolesBg from '../../assets/category-pics/consoles-bg.webp';
 import gamesBg from '../../assets/category-pics/games-bg.webp';
@@ -11,7 +13,9 @@ const CategoriesCarousel = () => {
     <div className={classes.wrapper}>
       <div className={classes.categories}>
         <div className={classes.categoryWrapper}>
-          <div
+          <Link
+            to={`/categories/consoles`}
+            state={{ title: 'Consoles', category: 'consoles' }}
             className={classes.category}
             style={{
               backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.9),
@@ -19,20 +23,24 @@ const CategoriesCarousel = () => {
             }}
           >
             <h2>Consoles</h2>
-          </div>
+          </Link>
         </div>
-
         <div className={classes.categoryWrapper}>
-          <div
+          <Link
+            to={`/categories/games`}
+            state={{ title: 'Games', category: 'games' }}
             className={`${classes.category} ${classes.halfCategory}`}
             style={{
               backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.9),
-                    rgba(0, 0, 0, 0.9)), url(${gamesBg})`,
+                  rgba(0, 0, 0, 0.9)), url(${gamesBg})`,
             }}
           >
             <h2>Games</h2>
-          </div>
-          <div
+          </Link>
+
+          <Link
+            to={`/categories/gamingLaptops`}
+            state={{ title: 'Gaming Laptops', category: 'gamingLaptops' }}
             className={`${classes.category} ${classes.halfCategory}`}
             style={{
               backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.9),
@@ -40,11 +48,16 @@ const CategoriesCarousel = () => {
             }}
           >
             <h2>Gaming laptops</h2>
-          </div>
+          </Link>
         </div>
 
         <div className={classes.categoryWrapper}>
-          <div
+          <Link
+            to={`/categories/gamingMonitors`}
+            state={{
+              title: 'Gaming monitors & TV',
+              category: 'gamingMonitors',
+            }}
             className={classes.category}
             style={{
               backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.9),
@@ -52,11 +65,13 @@ const CategoriesCarousel = () => {
             }}
           >
             <h2>Gaming monitors & TV</h2>
-          </div>
+          </Link>
         </div>
 
         <div className={classes.categoryWrapper}>
-          <div
+          <Link
+            to={`/categories/VRgadgets`}
+            state={{ title: 'VR Gadgets', category: 'VRgadgets' }}
             className={`${classes.category} ${classes.halfCategory}`}
             style={{
               backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.9),
@@ -64,8 +79,13 @@ const CategoriesCarousel = () => {
             }}
           >
             <h2>VR gadgets</h2>
-          </div>
-          <div
+          </Link>
+          <Link
+            to={`/categories/gamingAccessories`}
+            state={{
+              title: 'Gaming Accessories',
+              category: 'gamingAccessories',
+            }}
             className={`${classes.category} ${classes.halfCategory}`}
             style={{
               backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.9),
@@ -73,7 +93,7 @@ const CategoriesCarousel = () => {
             }}
           >
             <h2>Gaming accessories</h2>
-          </div>
+          </Link>
         </div>
       </div>
     </div>

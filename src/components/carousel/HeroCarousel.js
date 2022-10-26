@@ -1,7 +1,8 @@
 import { useRef, useState } from 'react';
 
 import classes from './HeroCarousel.module.css';
-import { postersArr } from '../../HelperConsts';
+// import { postersArr } from '../../HelperConsts';
+import postersArr from '../../data/Posters.json';
 
 const HeroCarousel = () => {
   const heroRef = useRef();
@@ -56,8 +57,6 @@ const HeroCarousel = () => {
           width="21"
           height="76"
           viewBox="0 0 21 76"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
         >
           <path
             d="M19.7856 76L20.7144 74.1913L2.14258 38L20.7144 1.80873L19.7856 0L0.285595 38L19.7856 76Z"
@@ -70,7 +69,6 @@ const HeroCarousel = () => {
           width="21"
           height="76"
           viewBox="0 0 21 76"
-          fill="none"
         >
           <path
             d="M1.2144 0L0.285583 1.80873L18.8574 38L0.285583 74.1913L1.2144 76L20.7144 38L1.2144 0Z"

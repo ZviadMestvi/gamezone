@@ -1,0 +1,87 @@
+{
+  "consoles": [
+    "PlayStation 4",
+    "PlayStation 4 Accessories",
+    "PlayStation 5",
+    "PlayStation 5 Accessories",
+    "Xbox",
+    "Xbox Accessories",
+    "Nintendo",
+    "Nintendo Accessories",
+    "Classic Consoles"
+  ],
+  "games": [
+    "PlayStation 4 Games",
+    "PlayStation 5 Games",
+    "Xbox Games",
+    "Nintendo Switch Games",
+    "VR Games",
+    "Gift Cards"
+  ],
+  "robots_and_games": [
+    "Gaming Figures",
+    "Comics",
+    "Smart Toys",
+    "Smart Watches"
+  ],
+  "gaming_accessories": [
+    "Controllers",
+    "Gaming Headset",
+    "Headset",
+    "Keyboards",
+    "Mouse",
+    "Wheels",
+    "Gaming Chairs",
+    "Microphones",
+    "Mousepad",
+    "Webcam",
+    "USB-HDMI Cable",
+    "Monitors",
+    "Speakers",
+    "Cooler"
+  ],
+  "branded_accessories": ["Gaming Clothes", "Gaming Gifts", "Gaming Mugs"],
+  "gaming_monitors_and_TV": [
+    "Sony",
+    "Samsung",
+    "Aoc",
+    "Asus",
+    "ACER",
+    "PHILIPS",
+    "TCL",
+    "ViewSonic",
+    "Lenovo"
+  ],
+  "gaming_laptops": [
+    "Laptops",
+    "MSI",
+    "Acer",
+    "Lenovo",
+    "DREAM MACHINES",
+    "Dell",
+    "Microsoft"
+  ],
+  "VR_gadgets": ["Sony VR", "Trust VR", "Oculus", "Other VR"],
+  "PC_components": [
+    "Game Zone Computers",
+    "Graphics Cards",
+    "Motherboard",
+    "Case",
+    "Cooler",
+    "Power Supply"
+  ],
+  "accessories": ["Gaming Clothes", "Gaming Gifts", "Gaming Mugs"],
+  "tablets": ["Lenovo"],
+  "audio_systems": ["Marshall", "JBL", "Sennheiser", "Panasonic"],
+  "change_zone": [
+    "I - Category PS4",
+    "II - Category PS4",
+    "III - Category PS4",
+    "I - Category XBOX",
+    "II - Category XBOX",
+    "III - Category XBOX",
+    "For Kids PS4",
+    "For Kids XBOX"
+  ],
+  "networking": ["Routers", "Wi-Fi Adapters"]
+}

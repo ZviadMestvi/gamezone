@@ -1,11 +1,13 @@
-import { Fragment, useContext, useState } from 'react';
-import classes from './NavBar.module.css';
+import { Fragment, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import AppContext from '../../store/context';
+import classes from './NavBar.module.css';
 import downArrowIcon from '../../assets/dropdownArrow.svg';
+import categories from '../../data/Categories.json';
 
 const NavBar = () => {
-  const context = useContext(AppContext);
+  const { mobileNavVis } = useSelector(state => state.main);
   const [openedCategory, setOpenedCategory] = useState();
 
   const handleDropdown = index => {
@@ -16,309 +18,190 @@ const NavBar = () => {
 
   const renderConsoles = (
     <ul>
-      <li>
-        <p>PlayStation 4</p>
-      </li>
-      <li>
-        <p>PlayStation 4 Accessories</p>
-      </li>
-      <li>
-        <p>PlayStation 5</p>
-      </li>
-      <li>
-        <p>PlayStation 5 Accessories</p>
-      </li>
-      <li>
-        <p>Xbox</p>
-      </li>
-      <li>
-        <p>Xbox Accessories</p>
-      </li>
-      <li>
-        <p>Nintendo</p>
-      </li>
-      <li>
-        <p>Nintendo Accessories</p>
-      </li>
-      <li>
-        <p>Classic Consoles</p>
-      </li>
+      {categories.consoles.map(console => {
+        return (
+          <li key={console}>
+            <Link to={`/categories/consoles/${console}`}>
+              <p>{console}</p>
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
   const renderGames = (
     <ul>
-      <li>
-        <p>PlayStation 4 Games</p>
-      </li>
-      <li>
-        <p>PlayStation 5 Games</p>
-      </li>
-      <li>
-        <p>Xbox Games</p>
-      </li>
-      <li>
-        <p>Nintendo Switch Games</p>
-      </li>
-      <li>
-        <p>VR Games</p>
-      </li>
-      <li>
-        <p>Gift Cards</p>
-      </li>
+      {categories.games.map(console => {
+        return (
+          <li key={console}>
+            <Link to={`/categories/games/${console}`}>
+              <p>{console}</p>
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
   const renderRobots = (
     <ul>
-      <li>
-        <p>Gaming Figures</p>
-      </li>
-      <li>
-        <p>Comics</p>
-      </li>
-      <li>
-        <p>Smart Toys</p>
-      </li>
-      <li>
-        <p>Smart Watches</p>
-      </li>
+      {categories.robots_and_games.map(console => {
+        return (
+          <li key={console}>
+            <Link to={`/categories/robots_and_games/${console}`}>
+              <p>{console}</p>
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
   const renderGamingAccs = (
     <ul>
-      <li>
-        <p>Controllers</p>
-      </li>
-      <li>
-        <p>Gaming Headset</p>
-      </li>
-      <li>
-        <p>Headset</p>
-      </li>
-      <li>
-        <p>Keyboards</p>
-      </li>
-      <li>
-        <p>Mouse</p>
-      </li>
-      <li>
-        <p>Wheels</p>
-      </li>
-      <li>
-        <p>Gaming Chairs</p>
-      </li>
-      <li>
-        <p>Microphones</p>
-      </li>
-      <li>
-        <p>Mousepad</p>
-      </li>
-      <li>
-        <p>Webcam</p>
-      </li>
-      <li>
-        <p>USB-HDMI Cable</p>
-      </li>
-      <li>
-        <p>Monitors</p>
-      </li>
-      <li>
-        <p>Speakers</p>
-      </li>
-      <li>
-        <p>Cooler</p>
-      </li>
-      <li>
-        <p>...</p>
-      </li>
+      {categories.gaming_accessories.map(console => {
+        return (
+          <li key={console}>
+            <Link to={`/categories/gaming_accessories/${console}`}>
+              <p>{console}</p>
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
   const renderBrandedAccs = (
     <ul>
-      <li>
-        <p>Gaming Clothes</p>
-      </li>
-      <li>
-        <p>Gaming Gifts</p>
-      </li>
-      <li>
-        <p>Gaming Mugs</p>
-      </li>
+      {categories.branded_accessories.map(console => {
+        return (
+          <li key={console}>
+            <Link to={`/categories/branded_accessories/${console}`}>
+              <p>{console}</p>
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
   const renderGamingMonitors = (
     <ul>
-      <li>
-        <p>Sony</p>
-      </li>
-      <li>
-        <p>Samsung</p>
-      </li>
-      <li>
-        <p>Aoc</p>
-      </li>
-      <li>
-        <p>Asus</p>
-      </li>
-      <li>
-        <p>ACER</p>
-      </li>
-      <li>
-        <p>PHILIPS</p>
-      </li>
-      <li>
-        <p>TCL</p>
-      </li>
-      <li>
-        <p>ViewSonic</p>
-      </li>
-      <li>
-        <p>Lenovo</p>
-      </li>
+      {categories.gaming_monitors_and_TV.map(console => {
+        return (
+          <li key={console}>
+            <Link to={`/categories/gaming_monitors_and_TV/${console}`}>
+              <p>{console}</p>
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
   const renderGamingLaptops = (
     <ul>
-      <li>
-        <p>Laptops</p>
-      </li>
-      <li>
-        <p>MSI</p>
-      </li>
-      <li>
-        <p>Acer</p>
-      </li>
-      <li>
-        <p>Lenovo</p>
-      </li>
-      <li>
-        <p>DREAM MACHINES</p>
-      </li>
-      <li>
-        <p>Dell</p>
-      </li>
-      <li>
-        <p>Microsoft</p>
-      </li>
+      {categories.gaming_laptops.map(console => {
+        return (
+          <li key={console}>
+            <Link to={`/categories/gaming_laptops/${console}`}>
+              <p>{console}</p>
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
   const renderVRgadgets = (
     <ul>
-      <li>
-        <p>Sony VR</p>
-      </li>
-      <li>
-        <p>Trust VR</p>
-      </li>
-      <li>
-        <p>Oculus</p>
-      </li>
-      <li>
-        <p>Other VR</p>
-      </li>
+      {categories.VR_gadgets.map(console => {
+        return (
+          <li key={console}>
+            <Link to={`/categories/VR_gadgets/${console}`}>
+              <p>{console}</p>
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
   const renderPCcomponents = (
     <ul>
-      <li>
-        <p>Game Zone Computers</p>
-      </li>
-      <li>
-        <p>Graphics Cards</p>
-      </li>
-      <li>
-        <p>Motherboard</p>
-      </li>
-      <li>
-        <p>Case</p>
-      </li>
-      <li>
-        <p>Cooler</p>
-      </li>
-      <li>
-        <p>Power Supply</p>
-      </li>
+      {categories.PC_components.map(console => {
+        return (
+          <li key={console}>
+            <Link to={`/categories/PC_components/${console}`}>
+              <p>{console}</p>
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
   const renderAccessories = (
     <ul>
-      <li>
-        <p>Gaming Clothes</p>
-      </li>
-      <li>
-        <p>Gaming Gifts</p>
-      </li>
-      <li>
-        <p>Gaming Mugs</p>
-      </li>
+      {categories.accessories.map(console => {
+        return (
+          <li key={console}>
+            <Link to={`/categories/accessories/${console}`}>
+              <p>{console}</p>
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
   const renderTablets = (
     <ul>
-      <li>
-        <p>Lenovo</p>
-      </li>
+      {categories.tablets.map(console => {
+        return (
+          <li key={console}>
+            <Link to={`/categories/tablets/${console}`}>
+              <p>{console}</p>
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
   const renderAudioSys = (
     <ul>
-      <li>
-        <p>Marshall</p>
-      </li>
-      <li>
-        <p>JBL</p>
-      </li>
-      <li>
-        <p>Sennheiser</p>
-      </li>
-      <li>
-        <p>Panasonic</p>
-      </li>
+      {categories.audio_systems.map(console => {
+        return (
+          <li key={console}>
+            <Link to={`/categories/audio_systems/${console}`}>
+              <p>{console}</p>
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
   const renderChangeZone = (
     <ul>
-      <li>
-        <p>I - Category PS4</p>
-      </li>
-      <li>
-        <p>II - Category PS4</p>
-      </li>
-      <li>
-        <p>III - Category PS4</p>
-      </li>
-      <li>
-        <p>I - Category XBOX</p>
-      </li>
-      <li>
-        <p>II - Category XBOX</p>
-      </li>
-      <li>
-        <p>III - Category XBOX</p>
-      </li>
-      <li>
-        <p>For Kids PS4</p>
-      </li>
-      <li>
-        <p>For Kids XBOX</p>
-      </li>
+      {categories.change_zone.map(console => {
+        return (
+          <li key={console}>
+            <Link to={`/categories/change_zone/${console}`}>
+              <p>{console}</p>
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
   const renderNetworking = (
     <ul>
-      <li>
-        <p>Routers</p>
-      </li>
-      <li>
-        <p>Wi-Fi Adapters</p>
-      </li>
+      {categories.networking.map(console => {
+        return (
+          <li key={console}>
+            <Link to={`/categories/networking/${console}`}>
+              <p>{console}</p>
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
 
   return (
     <Fragment>
-      <nav
-        className={`${classes.nav} ${context.mobileNavVis ? classes.show : ''}`}
-      >
+      <nav className={`${classes.nav} ${mobileNavVis ? classes.show : ''}`}>
         <ul className={classes.categories}>
           <li className={classes.category}>
             <p className={classes.title}>
@@ -354,67 +237,95 @@ const NavBar = () => {
               >
                 <div className={classes.menuContainer}>
                   <div>
-                    <h3>Consoles</h3>
+                    <Link to="/categories/consoles">
+                      <h3>Consoles</h3>
+                    </Link>
                     {renderConsoles}
                   </div>
                   <div>
-                    <h3>Games</h3>
+                    <Link to="/categories/games">
+                      <h3>Games</h3>
+                    </Link>
                     {renderGames}
                   </div>
                   <div>
-                    <h3>Gaming Monitors & TV</h3>
+                    <Link to="/categories/gaming_monitors_and_TV">
+                      <h3>Gaming Monitors & TV</h3>
+                    </Link>
                     {renderGamingMonitors}
                   </div>
                 </div>
 
                 <div className={classes.menuContainer}>
                   <div>
-                    <h3>Gaming Laptops</h3>
+                    <Link to="/categories/gaming_laptops">
+                      <h3>Gaming Laptops</h3>
+                    </Link>
                     {renderGamingLaptops}
                   </div>
                   <div>
-                    <h3>VR Gadgets</h3>
+                    <Link to="/categories/VR_gadgets">
+                      <h3>VR Gadgets</h3>
+                    </Link>
                     {renderVRgadgets}
                   </div>
                   <div>
-                    <h3>Gaming Accessories</h3>
+                    <Link to="/categories/gaming_accessories">
+                      <h3>Gaming Accessories</h3>
+                    </Link>
                     {renderGamingAccs}
                   </div>
                 </div>
 
                 <div className={classes.menuContainer}>
                   <div>
-                    <h3>PC Components</h3>
+                    <Link to="/categories/PC_components">
+                      <h3>PC Components</h3>
+                    </Link>
                     {renderPCcomponents}
                   </div>
                   <div>
-                    <h3>Accessories</h3>
+                    <Link to="/categories/accessories">
+                      <h3>Accessories</h3>
+                    </Link>
                     {renderAccessories}
                   </div>
                   <div>
-                    <h3>Scooters</h3>
+                    <Link to="/categories/scooters">
+                      <h3>Scooters</h3>
+                    </Link>
                   </div>
                   <div>
-                    <h3>Robots & Toys</h3>
+                    <Link to="/categories/robots_and_toys">
+                      <h3>Robots & Toys</h3>
+                    </Link>
                     {renderRobots}
                   </div>
                 </div>
 
                 <div className={classes.menuContainer}>
                   <div>
-                    <h3>Tablets</h3>
+                    <Link to="/categories/tablets">
+                      <h3>Tablets</h3>
+                    </Link>
                     {renderTablets}
                   </div>
                   <div>
-                    <h3>Audio Systems</h3>
+                    <Link to="/categories/audio_systems">
+                      <h3>Audio Systems</h3>
+                    </Link>
                     {renderAudioSys}
                   </div>
                   <div>
-                    <h3>Change Zone</h3>
+                    <Link to="/categories/change_zone">
+                      <h3>Change Zone</h3>
+                    </Link>
                     {renderChangeZone}
                   </div>
                   <div>
-                    <h3>Networking</h3>
+                    <Link to="/categories/networking">
+                      <h3>Networking</h3>
+                    </Link>
                     {renderNetworking}
                   </div>
                 </div>
@@ -423,35 +334,39 @@ const NavBar = () => {
           </li>
 
           <li className={classes.category}>
-            <p className={classes.title}>New</p>
+            <Link to="/categories/new">
+              <p className={classes.title}>New</p>
+            </Link>
           </li>
 
           <li className={classes.category}>
-            <p className={classes.title}>
-              Consoles
-              <span
-                className={classes.mobileArrowDown}
-                onClick={handleDropdown.bind(null, 2)}
-              >
-                <img
-                  className={
-                    openedCategory === 2 ? classes.activeDropdownArrow : ''
-                  }
-                  src={downArrowIcon}
-                  alt="dropdown arrow"
-                  width="10"
-                  height="10"
-                />
-              </span>
-              <span className={classes.arrowDown}>
-                <img
-                  width="10"
-                  height="10"
-                  src={downArrowIcon}
-                  alt="dropdown arrow"
-                />
-              </span>
-            </p>
+            <Link to="/categories/consoles">
+              <p className={classes.title}>
+                Consoles
+                <span
+                  className={classes.mobileArrowDown}
+                  onClick={handleDropdown.bind(null, 2)}
+                >
+                  <img
+                    className={
+                      openedCategory === 2 ? classes.activeDropdownArrow : ''
+                    }
+                    src={downArrowIcon}
+                    alt="dropdown arrow"
+                    width="10"
+                    height="10"
+                  />
+                </span>
+                <span className={classes.arrowDown}>
+                  <img
+                    width="10"
+                    height="10"
+                    src={downArrowIcon}
+                    alt="dropdown arrow"
+                  />
+                </span>
+              </p>
+            </Link>
             <div
               className={`${classes.categoryMenu} ${
                 openedCategory === 2 ? classes.activeDropdownMenu : ''
@@ -462,31 +377,33 @@ const NavBar = () => {
           </li>
 
           <li className={classes.category}>
-            <p className={classes.title}>
-              Games
-              <span
-                className={classes.mobileArrowDown}
-                onClick={handleDropdown.bind(null, 3)}
-              >
-                <img
-                  className={
-                    openedCategory === 3 ? classes.activeDropdownArrow : ''
-                  }
-                  src={downArrowIcon}
-                  alt="dropdown arrow"
-                  width="10"
-                  height="10"
-                />
-              </span>
-              <span className={classes.arrowDown}>
-                <img
-                  width="10"
-                  height="10"
-                  src={downArrowIcon}
-                  alt="dropdown arrow"
-                />
-              </span>
-            </p>
+            <Link to="/categories/games">
+              <p className={classes.title}>
+                Games
+                <span
+                  className={classes.mobileArrowDown}
+                  onClick={handleDropdown.bind(null, 3)}
+                >
+                  <img
+                    className={
+                      openedCategory === 3 ? classes.activeDropdownArrow : ''
+                    }
+                    src={downArrowIcon}
+                    alt="dropdown arrow"
+                    width="10"
+                    height="10"
+                  />
+                </span>
+                <span className={classes.arrowDown}>
+                  <img
+                    width="10"
+                    height="10"
+                    src={downArrowIcon}
+                    alt="dropdown arrow"
+                  />
+                </span>
+              </p>
+            </Link>
             <div
               className={`${classes.categoryMenu} ${
                 openedCategory === 3 ? classes.activeDropdownMenu : ''
@@ -497,31 +414,33 @@ const NavBar = () => {
           </li>
 
           <li className={classes.category}>
-            <p className={classes.title}>
-              Robots & Games
-              <span
-                className={classes.mobileArrowDown}
-                onClick={handleDropdown.bind(null, 4)}
-              >
-                <img
-                  className={
-                    openedCategory === 4 ? classes.activeDropdownArrow : ''
-                  }
-                  src={downArrowIcon}
-                  alt="dropdown arrow"
-                  width="10"
-                  height="10"
-                />
-              </span>
-              <span className={classes.arrowDown}>
-                <img
-                  width="10"
-                  height="10"
-                  src={downArrowIcon}
-                  alt="dropdown arrow"
-                />
-              </span>
-            </p>
+            <Link to="/categories/robots_and_games">
+              <p className={classes.title}>
+                Robots & Games
+                <span
+                  className={classes.mobileArrowDown}
+                  onClick={handleDropdown.bind(null, 4)}
+                >
+                  <img
+                    className={
+                      openedCategory === 4 ? classes.activeDropdownArrow : ''
+                    }
+                    src={downArrowIcon}
+                    alt="dropdown arrow"
+                    width="10"
+                    height="10"
+                  />
+                </span>
+                <span className={classes.arrowDown}>
+                  <img
+                    width="10"
+                    height="10"
+                    src={downArrowIcon}
+                    alt="dropdown arrow"
+                  />
+                </span>
+              </p>
+            </Link>
             <div
               className={`${classes.categoryMenu} ${
                 openedCategory === 4 ? classes.activeDropdownMenu : ''
@@ -532,31 +451,33 @@ const NavBar = () => {
           </li>
 
           <li className={classes.category}>
-            <p className={classes.title}>
-              Gaming Accessories
-              <span
-                className={classes.mobileArrowDown}
-                onClick={handleDropdown.bind(null, 5)}
-              >
-                <img
-                  className={
-                    openedCategory === 5 ? classes.activeDropdownArrow : ''
-                  }
-                  src={downArrowIcon}
-                  alt="dropdown arrow"
-                  width="10"
-                  height="10"
-                />
-              </span>
-              <span className={classes.arrowDown}>
-                <img
-                  width="10"
-                  height="10"
-                  src={downArrowIcon}
-                  alt="dropdown arrow"
-                />
-              </span>
-            </p>
+            <Link to="/categories/gaming_accessories">
+              <p className={classes.title}>
+                Gaming Accessories
+                <span
+                  className={classes.mobileArrowDown}
+                  onClick={handleDropdown.bind(null, 5)}
+                >
+                  <img
+                    className={
+                      openedCategory === 5 ? classes.activeDropdownArrow : ''
+                    }
+                    src={downArrowIcon}
+                    alt="dropdown arrow"
+                    width="10"
+                    height="10"
+                  />
+                </span>
+                <span className={classes.arrowDown}>
+                  <img
+                    width="10"
+                    height="10"
+                    src={downArrowIcon}
+                    alt="dropdown arrow"
+                  />
+                </span>
+              </p>
+            </Link>
             <div
               className={`${classes.categoryMenu} ${
                 openedCategory === 5 ? classes.activeDropdownMenu : ''
@@ -567,31 +488,33 @@ const NavBar = () => {
           </li>
 
           <li className={classes.category}>
-            <p className={classes.title}>
-              Branded Accessories
-              <span
-                className={classes.mobileArrowDown}
-                onClick={handleDropdown.bind(null, 6)}
-              >
-                <img
-                  className={
-                    openedCategory === 6 ? classes.activeDropdownArrow : ''
-                  }
-                  src={downArrowIcon}
-                  alt="dropdown arrow"
-                  width="10"
-                  height="10"
-                />
-              </span>
-              <span className={classes.arrowDown}>
-                <img
-                  width="10"
-                  height="10"
-                  src={downArrowIcon}
-                  alt="dropdown arrow"
-                />
-              </span>
-            </p>
+            <Link to="/categories/branded_accessories">
+              <p className={classes.title}>
+                Branded Accessories
+                <span
+                  className={classes.mobileArrowDown}
+                  onClick={handleDropdown.bind(null, 6)}
+                >
+                  <img
+                    className={
+                      openedCategory === 6 ? classes.activeDropdownArrow : ''
+                    }
+                    src={downArrowIcon}
+                    alt="dropdown arrow"
+                    width="10"
+                    height="10"
+                  />
+                </span>
+                <span className={classes.arrowDown}>
+                  <img
+                    width="10"
+                    height="10"
+                    src={downArrowIcon}
+                    alt="dropdown arrow"
+                  />
+                </span>
+              </p>
+            </Link>
             <div
               className={`${classes.categoryMenu} ${
                 openedCategory === 6 ? classes.activeDropdownMenu : ''

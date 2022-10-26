@@ -14,15 +14,42 @@
   color: white;
 }
 
-.filterName img {
-  transition: transform 0.1s ease;
+.filterName div {
+  display: flex;
+  align-items: center;
+}
+
+.filterName button {
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.filterName button img {
+  transition: transform 500ms ease;
+  width: 18px;
+  height: 18px;
+}
+
+.dropdownIcon {
+  transition: transform 500ms ease;
   width: 12px;
   height: 12px;
 }
 
 .categoryList {
+  transition: all 500ms ease;
   background-color: var(--dark-grey);
   padding: 2px 0 8px 0;
+  height: 240px;
+  overflow: hidden;
+}
+
+.categoryList.hide {
+  height: 0;
+  padding: 0;
 }
 
 .categoryList li {
@@ -47,15 +74,13 @@
 .checkmark {
   margin-right: 8px;
   border: 1px solid white;
+  transition: all 200ms ease;
   width: 13px;
   height: 13px;
 }
 
 .checkmark.active {
   background-color: var(--light);
-}
-
-@media only screen and (max-width: 1000px) {
 }
 
 .activeFilter {

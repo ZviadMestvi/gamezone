@@ -1,44 +1,125 @@
 import { Fragment, useState } from 'react';
-import { gameCategories, testProducts } from '../../HelperConsts';
-import classes from './CategoryPage.module.css';
+import { Link, useParams } from 'react-router-dom';
+import {
+  sortAlphabeticallyAsc,
+  sortAlphabeticallyDesc,
+  sortByReleaseDateAsc,
+  sortByReleaseDateDesc,
+  sortByPriceAsc,
+  sortByPriceDesc,
+} from '../../HelperFunctions';
 
+import classes from './CategoryPage.module.css';
 import dropdownArrow from '../../assets/dropdownArrow.svg';
+import products from '../../data/Products.json';
+import categories from '../../data/Categories.json';
 import Header from '../../components/header/Header';
 import PriceFilter from '../../components/filters/PriceFilter';
 import BrandFilter from '../../components/filters/BrandFilter';
 import ListViewProduct from '../../components/products/ListViewProduct/ListViewProduct';
-import CarouselProduct from '../../components/products/DefaultProduct/DefaultProduct';
+import DefaultProduct from '../../components/products/DefaultProduct/DefaultProduct';
 import LineViewProduct from '../../components/products/LineViewProduct/LineViewProduct';
 import Pagination from '../../components/pagination/Pagination';
 import Footer from '../../components/footer/Footer';
 
 const CategoryPage = () => {
+  const { category, subcategory } = useParams();
+  const title = category.replace(/_/g, ' ').replace(/and/, '&');
+  const [currentPage, setCurrentPage] = useState(1);
   const [filtersVis, setFiltersVis] = useState(false);
-  const [productView, setProductView] = useState('grid');
   const [sortNameVis, setSortNameVis] = useState(false);
   const [sortPPPVis, setSortPPPVis] = useState(false);
-  const [sortBy, setSortBy] = useState('Featured');
-  const [ppp, setPpp] = useState(24);
+  const [ppp, setPpp] = useState(localStorage.getItem('ppp') ?? '24'); // Products Per Page
+  const [productsArr, setProductsArr] = useState(
+    JSON.parse(localStorage.getItem('sortedProducts')) ?? products
+  );
+  const [productView, setProductView] = useState(
+    localStorage.getItem('productsView') ?? 'grid'
+  );
+  const [sortBy, setSortBy] = useState(
+    localStorage.getItem('sortMethod') ?? 'Featured'
+  );
 
-  const renderCategories = gameCategories.map(category => {
+  const changeCurrentPage = value => {
+    setCurrentPage(value);
+  };
+
+  const changeProductView = view => {
+    localStorage.setItem('productsView', view);
+    if (view === 'grid') setProductView('grid');
+    if (view === 'list') setProductView('list');
+    if (view === 'line') setProductView('line');
+  };
+
+  const changePPP = value => {
+    localStorage.setItem('ppp', value);
+    setPpp(value);
+  };
+
+  const changeSortMethod = e => {
+    let sortedArr;
+
+    switch (e.target.textContent) {
+      case 'Name: A - Z':
+        sortedArr = sortAlphabeticallyAsc(products);
+        break;
+      case 'Name: Z - A':
+        sortedArr = sortAlphabeticallyDesc(products);
+        break;
+      case 'Release Date: New - Old':
+        sortedArr = sortByReleaseDateAsc(products);
+        break;
+      case 'Release Date: Old - New':
+        sortedArr = sortByReleaseDateDesc(products);
+        break;
+      case 'Price: Low - High':
+        sortedArr = sortByPriceAsc(products);
+        break;
+      case 'Price: High - Low':
+        sortedArr = sortByPriceDesc(products);
+        break;
+      default:
+        sortedArr = products;
+    }
+
+    setProductsArr(sortedArr);
+    localStorage.setItem('sortedProducts', JSON.stringify(sortedArr));
+
+    setSortBy(e.target.textContent);
+    localStorage.setItem('sortMethod', e.target.textContent);
+  };
+
+  const renderCategories = categories[category]?.map((ctg, i) => {
     return (
-      <li key={category}>
-        <p>{category}</p>
+      <li key={ctg}>
+        <Link to={`/categories/${category}/${ctg}`}>
+          <p>{ctg}</p>
+        </Link>
       </li>
     );
   });
 
-  const renderProducts = testProducts.map((product, i) => {
+  // Calculates how many products should be rendered on each page
+  const indexOfLastProduct = currentPage * ppp;
+  const indexOfFirstProduct = indexOfLastProduct - ppp;
+  const currentProducts = productsArr.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+
+  const renderProducts = currentProducts.map((product, i) => {
+    if (i + 1 > ppp) return null;
+
     if (productView === 'grid') {
-      return <CarouselProduct key={i} grid={true} data={product} />;
+      return <DefaultProduct key={i} grid={true} data={product} />;
     }
 
     if (productView === 'list') {
-      return <ListViewProduct data={product} />;
+      return <ListViewProduct key={i} data={product} />;
     }
 
     if (productView === 'line') {
-      return <LineViewProduct data={product} />;
+      return <LineViewProduct key={i} data={product} />;
     }
 
     return null;
@@ -77,7 +158,10 @@ const CategoryPage = () => {
         <section className={classes.productsSection}>
           <div>
             <h1 className={classes.mainTitle}>
-              Categories <span>Home / Gaming Accessories</span>
+              {!subcategory ? title : subcategory}{' '}
+              <span>
+                Home / {title} {subcategory ? `/ ${subcategory}` : ''}
+              </span>
             </h1>
           </div>
 
@@ -96,7 +180,7 @@ const CategoryPage = () => {
                 </button>
                 {sortNameVis && (
                   <ul>
-                    <li onClick={() => setSortBy('Featured')}>
+                    <li onClick={changeSortMethod}>
                       <p
                         className={
                           sortBy === 'Featured' ? classes.activeSort : ''
@@ -105,7 +189,7 @@ const CategoryPage = () => {
                         Featured
                       </p>
                     </li>
-                    <li onClick={() => setSortBy('Name: A - Z')}>
+                    <li onClick={changeSortMethod}>
                       <p
                         className={
                           sortBy === 'Name: A - Z' ? classes.activeSort : ''
@@ -114,7 +198,7 @@ const CategoryPage = () => {
                         Name: A - Z
                       </p>
                     </li>
-                    <li onClick={() => setSortBy('Name: Z - A')}>
+                    <li onClick={changeSortMethod}>
                       <p
                         className={
                           sortBy === 'Name: Z - A' ? classes.activeSort : ''
@@ -123,7 +207,7 @@ const CategoryPage = () => {
                         Name: Z - A
                       </p>
                     </li>
-                    <li onClick={() => setSortBy('Release Date: New - Old')}>
+                    <li onClick={changeSortMethod}>
                       <p
                         className={
                           sortBy === 'Release Date: New - Old'
@@ -134,7 +218,7 @@ const CategoryPage = () => {
                         Release Date: New - Old
                       </p>
                     </li>
-                    <li onClick={() => setSortBy('Release Date: Old - New')}>
+                    <li onClick={changeSortMethod}>
                       <p
                         className={
                           sortBy === 'Release Date: Old - New'
@@ -145,7 +229,7 @@ const CategoryPage = () => {
                         Release Date: Old - New
                       </p>
                     </li>
-                    <li onClick={() => setSortBy('Price: Low - High')}>
+                    <li onClick={changeSortMethod}>
                       <p
                         className={
                           sortBy === 'Price: Low - High'
@@ -156,7 +240,7 @@ const CategoryPage = () => {
                         Price: Low - High
                       </p>
                     </li>
-                    <li onClick={() => setSortBy('Price: High - Low')}>
+                    <li onClick={changeSortMethod}>
                       <p
                         className={
                           sortBy === 'Price: High - Low'
@@ -184,23 +268,23 @@ const CategoryPage = () => {
                 </button>
                 {sortPPPVis && (
                   <ul>
-                    <li onClick={() => setPpp(12)}>
-                      <p className={ppp === 12 ? classes.activeSort : ''}>
+                    <li onClick={changePPP.bind(null, '12')}>
+                      <p className={ppp === '12' ? classes.activeSort : ''}>
                         12 Products Per Page
                       </p>
                     </li>
-                    <li onClick={() => setPpp(24)}>
-                      <p className={ppp === 24 ? classes.activeSort : ''}>
+                    <li onClick={changePPP.bind(null, '24')}>
+                      <p className={ppp === '24' ? classes.activeSort : ''}>
                         24 Products Per Page
                       </p>
                     </li>
-                    <li onClick={() => setPpp(48)}>
-                      <p className={ppp === 48 ? classes.activeSort : ''}>
+                    <li onClick={changePPP.bind(null, '48')}>
+                      <p className={ppp === '48' ? classes.activeSort : ''}>
                         48 Products Per Page
                       </p>
                     </li>
-                    <li onClick={() => setPpp(96)}>
-                      <p className={ppp === 96 ? classes.activeSort : ''}>
+                    <li onClick={changePPP.bind(null, '96')}>
+                      <p className={ppp === '96' ? classes.activeSort : ''}>
                         96 Products Per Page
                       </p>
                     </li>
@@ -211,9 +295,9 @@ const CategoryPage = () => {
 
             <div className={classes.sortBtns}>
               <button
-                aria-label="Products grid view"
-                onClick={() => setProductView('grid')}
+                aria-label="grid view"
                 className={productView === 'grid' ? classes.activeSortBtn : ''}
+                onClick={changeProductView.bind(null, 'grid')}
               >
                 <svg width="26" height="26" viewBox="0 0 27 27">
                   <path
@@ -239,9 +323,9 @@ const CategoryPage = () => {
                 </svg>
               </button>
               <button
-                aria-label="Products list view"
-                onClick={() => setProductView('list')}
+                aria-label="list view"
                 className={productView === 'list' ? classes.activeSortBtn : ''}
+                onClick={changeProductView.bind(null, 'list')}
               >
                 <svg width="22" height="22" viewBox="0 0 25 25">
                   <path
@@ -271,11 +355,9 @@ const CategoryPage = () => {
                 </svg>
               </button>
               <button
-                aria-label="Products line view"
-                onClick={() => {
-                  setProductView('line');
-                }}
+                aria-label="line view"
                 className={productView === 'line' ? classes.activeSortBtn : ''}
+                onClick={changeProductView.bind(null, 'line')}
               >
                 <svg width="20" height="20" viewBox="0 0 21 22">
                   <g clipPath="url(#clip0_85_195)">
@@ -317,7 +399,11 @@ const CategoryPage = () => {
             {renderProducts}
           </div>
 
-          <Pagination />
+          <Pagination
+            size={Math.ceil(products.length / +ppp)}
+            currentPage={currentPage}
+            changeCurrentPage={changeCurrentPage}
+          />
         </section>
       </main>
       <Footer />

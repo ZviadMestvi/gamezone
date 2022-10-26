@@ -2,6 +2,11 @@ footer {
   background-color: var(--dark-grey);
 }
 
+.footerWrapper a {
+  text-decoration: underline;
+  color: var(--lighter-blue);
+}
+
 .footerWrapper {
   display: flex;
   margin: 0 auto;

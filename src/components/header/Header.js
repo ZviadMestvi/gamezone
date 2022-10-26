@@ -1,14 +1,15 @@
-import { Fragment, useContext } from 'react';
+import { Fragment } from 'react';
+import { useDispatch } from 'react-redux';
+import { toggleNavVis } from '../../store/mainSlice';
 
 import classes from './Header.module.css';
-import AppContext from '../../store/context';
 import hamburgerMenu from '../../assets/hamburgerMenu.svg';
 import Search from '../search/Search';
 import CartOverlay from '../cart/CartOverlay';
 import NavBar from './NavBar';
 
 const Header = () => {
-  const context = useContext(AppContext);
+  const dispatch = useDispatch();
 
   return (
     <Fragment>
@@ -28,7 +29,10 @@ const Header = () => {
       </header>
 
       <div className={classes.mobileHeader}>
-        <div className={classes.menuIconWrapper} onClick={context.toggleNavVis}>
+        <div
+          className={classes.menuIconWrapper}
+          onClick={() => dispatch(toggleNavVis())}
+        >
           <img
             width="32"
             height="32"

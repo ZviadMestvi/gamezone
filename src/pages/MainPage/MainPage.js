@@ -1,9 +1,9 @@
 import { Fragment } from 'react';
 
 import classes from './MainPage.module.css';
-import facebookLogo from '../../assets/facebook-logo-icon.svg';
-import instagramLogo from '../../assets/instagram-logo-icon.svg';
-import youtubeLogo from '../../assets/youtube-logo-icon.svg';
+import facebookLogo from '../../assets/facebookLogoIcon.svg';
+import instagramLogo from '../../assets/instagramLogoIcon.svg';
+import youtubeLogo from '../../assets/youtubeLogoIcon.svg';
 import Header from '../../components/header/Header';
 import HeroCarousel from '../../components/carousel/HeroCarousel';
 import CategoriesCarousel from '../../components/carousel/CategoriesCarousel';
