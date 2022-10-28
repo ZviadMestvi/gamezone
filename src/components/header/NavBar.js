@@ -205,15 +205,18 @@ const NavBar = () => {
         <ul className={classes.categories}>
           <li className={classes.category}>
             <div className={classes.linkWrapper}>
-              <p className={classes.title}>Catalogue</p>
-              <span className={classes.arrowDown}>
-                <img
-                  width="10"
-                  height="10"
-                  src={downArrowIcon}
-                  alt="dropdown arrow"
-                />
-              </span>
+              <p className={classes.title}>
+                Catalogue
+                <span className={classes.arrowDown}>
+                  <img
+                    width="10"
+                    height="10"
+                    src={downArrowIcon}
+                    alt="dropdown arrow"
+                  />
+                </span>
+              </p>
+
               <div>
                 <span
                   className={classes.mobileArrowDown}
