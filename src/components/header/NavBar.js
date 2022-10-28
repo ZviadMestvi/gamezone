@@ -359,19 +359,21 @@ const NavBar = () => {
                   />
                 </span>
               </Link>
-              <div
-                className={classes.mobileArrowDown}
-                onClick={handleDropdown.bind(null, 2)}
-              >
-                <img
-                  className={
-                    openedCategory === 2 ? classes.activeDropdownArrow : ''
-                  }
-                  src={downArrowIcon}
-                  alt="dropdown arrow"
-                  width="10"
-                  height="10"
-                />
+              <div>
+                <span
+                  className={classes.mobileArrowDown}
+                  onClick={handleDropdown.bind(null, 2)}
+                >
+                  <img
+                    className={
+                      openedCategory === 2 ? classes.activeDropdownArrow : ''
+                    }
+                    src={downArrowIcon}
+                    alt="dropdown arrow"
+                    width="10"
+                    height="10"
+                  />
+                </span>
               </div>
             </div>
             <div
@@ -396,19 +398,21 @@ const NavBar = () => {
                   />
                 </span>
               </Link>
-              <div
-                className={classes.mobileArrowDown}
-                onClick={handleDropdown.bind(null, 3)}
-              >
-                <img
-                  className={
-                    openedCategory === 3 ? classes.activeDropdownArrow : ''
-                  }
-                  src={downArrowIcon}
-                  alt="dropdown arrow"
-                  width="10"
-                  height="10"
-                />
+              <div>
+                <span
+                  className={classes.mobileArrowDown}
+                  onClick={handleDropdown.bind(null, 3)}
+                >
+                  <img
+                    className={
+                      openedCategory === 3 ? classes.activeDropdownArrow : ''
+                    }
+                    src={downArrowIcon}
+                    alt="dropdown arrow"
+                    width="10"
+                    height="10"
+                  />
+                </span>
               </div>
             </div>
             <div
