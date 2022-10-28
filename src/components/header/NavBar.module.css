@@ -23,7 +23,7 @@
   margin-left: 8px;
 }
 
-.category .linkWrapper img {
+.category span img {
   transition: transform 0.2s linear;
 }
 
@@ -87,8 +87,6 @@
   position: absolute;
   top: 100%;
   left: 0;
-  width: 100%;
-  z-index: 3;
 }
 
 .catalogueMenu {
@@ -233,6 +231,8 @@
 
   .catalogueMenuWrapper {
     box-shadow: none;
+    width: 100%;
+    z-index: 3;
   }
 
   .catalogueMenu {
