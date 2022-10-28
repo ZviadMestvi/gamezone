@@ -11,7 +11,6 @@ const NavBar = () => {
   const [openedCategory, setOpenedCategory] = useState();
 
   const handleDropdown = (index, e) => {
-    console.log(e.target);
     if (index === openedCategory) return setOpenedCategory(0);
     setOpenedCategory(index);
   };
