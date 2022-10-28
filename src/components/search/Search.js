@@ -1,26 +1,14 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useState } from 'react';
+import { useOutsideClickDetector } from '../../hooks/OutsideClickDetector';
 
 import classes from './Search.module.css';
-// import SearchProduct from '../products/SearchProduct/SearchProduct';
 
 const Search = () => {
   const searchRef = useRef();
   const [overlayVis, setOverlayVis] = useState(false);
 
-  const useOutsideClickDetector = function (ref) {
-    useEffect(() => {
-      const handleClickOutside = event => {
-        if (ref.current && !ref.current.contains(event.target)) {
-          setOverlayVis(false);
-        }
-      };
-
-      document.addEventListener('mousedown', handleClickOutside);
-      return () =>
-        document.removeEventListener('mousedown', handleClickOutside);
-    }, [ref]);
-  };
-  useOutsideClickDetector(searchRef);
+  const handleOutsideClick = () => setOverlayVis(false);
+  useOutsideClickDetector(searchRef, handleOutsideClick);
 
   const inputFocusHandler = () => {
     setOverlayVis(true);

@@ -24,7 +24,7 @@ import Footer from '../../components/footer/Footer';
 
 const CategoryPage = () => {
   const { category, subcategory } = useParams();
-  const title = category.replace(/_/g, ' ').replace(/and/, '&');
+  const title = category.replace(/_/g, ' ').replace(/ and /, '&');
   const [currentPage, setCurrentPage] = useState(1);
   const [filtersVis, setFiltersVis] = useState(false);
   const [sortNameVis, setSortNameVis] = useState(false);

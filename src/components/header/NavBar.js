@@ -10,9 +10,9 @@ const NavBar = () => {
   const { mobileNavVis } = useSelector(state => state.main);
   const [openedCategory, setOpenedCategory] = useState();
 
-  const handleDropdown = index => {
+  const handleDropdown = (index, e) => {
+    console.log(e.target);
     if (index === openedCategory) return setOpenedCategory(0);
-
     setOpenedCategory(index);
   };
 
@@ -204,22 +204,8 @@ const NavBar = () => {
       <nav className={`${classes.nav} ${mobileNavVis ? classes.show : ''}`}>
         <ul className={classes.categories}>
           <li className={classes.category}>
-            <p className={classes.title}>
-              Catalogue
-              <span
-                className={classes.mobileArrowDown}
-                onClick={handleDropdown.bind(null, 1)}
-              >
-                <img
-                  className={
-                    openedCategory === 1 ? classes.activeDropdownArrow : ''
-                  }
-                  src={downArrowIcon}
-                  alt="dropdown arrow"
-                  width="10"
-                  height="10"
-                />
-              </span>
+            <div className={classes.linkWrapper}>
+              <p className={classes.title}>Catalogue</p>
               <span className={classes.arrowDown}>
                 <img
                   width="10"
@@ -228,128 +214,14 @@ const NavBar = () => {
                   alt="dropdown arrow"
                 />
               </span>
-            </p>
-            <div className={classes.catalogueMenuWrapper}>
-              <div
-                className={`${classes.catalogueMenu} ${
-                  openedCategory === 1 ? classes.activeDropdownMenu : ''
-                }`}
-              >
-                <div className={classes.menuContainer}>
-                  <div>
-                    <Link to="/categories/consoles">
-                      <h3>Consoles</h3>
-                    </Link>
-                    {renderConsoles}
-                  </div>
-                  <div>
-                    <Link to="/categories/games">
-                      <h3>Games</h3>
-                    </Link>
-                    {renderGames}
-                  </div>
-                  <div>
-                    <Link to="/categories/gaming_monitors_and_TV">
-                      <h3>Gaming Monitors & TV</h3>
-                    </Link>
-                    {renderGamingMonitors}
-                  </div>
-                </div>
-
-                <div className={classes.menuContainer}>
-                  <div>
-                    <Link to="/categories/gaming_laptops">
-                      <h3>Gaming Laptops</h3>
-                    </Link>
-                    {renderGamingLaptops}
-                  </div>
-                  <div>
-                    <Link to="/categories/VR_gadgets">
-                      <h3>VR Gadgets</h3>
-                    </Link>
-                    {renderVRgadgets}
-                  </div>
-                  <div>
-                    <Link to="/categories/gaming_accessories">
-                      <h3>Gaming Accessories</h3>
-                    </Link>
-                    {renderGamingAccs}
-                  </div>
-                </div>
-
-                <div className={classes.menuContainer}>
-                  <div>
-                    <Link to="/categories/PC_components">
-                      <h3>PC Components</h3>
-                    </Link>
-                    {renderPCcomponents}
-                  </div>
-                  <div>
-                    <Link to="/categories/accessories">
-                      <h3>Accessories</h3>
-                    </Link>
-                    {renderAccessories}
-                  </div>
-                  <div>
-                    <Link to="/categories/scooters">
-                      <h3>Scooters</h3>
-                    </Link>
-                  </div>
-                  <div>
-                    <Link to="/categories/robots_and_toys">
-                      <h3>Robots & Toys</h3>
-                    </Link>
-                    {renderRobots}
-                  </div>
-                </div>
-
-                <div className={classes.menuContainer}>
-                  <div>
-                    <Link to="/categories/tablets">
-                      <h3>Tablets</h3>
-                    </Link>
-                    {renderTablets}
-                  </div>
-                  <div>
-                    <Link to="/categories/audio_systems">
-                      <h3>Audio Systems</h3>
-                    </Link>
-                    {renderAudioSys}
-                  </div>
-                  <div>
-                    <Link to="/categories/change_zone">
-                      <h3>Change Zone</h3>
-                    </Link>
-                    {renderChangeZone}
-                  </div>
-                  <div>
-                    <Link to="/categories/networking">
-                      <h3>Networking</h3>
-                    </Link>
-                    {renderNetworking}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-
-          <li className={classes.category}>
-            <Link to="/categories/new">
-              <p className={classes.title}>New</p>
-            </Link>
-          </li>
-
-          <li className={classes.category}>
-            <Link to="/categories/consoles">
-              <p className={classes.title}>
-                Consoles
+              <div>
                 <span
                   className={classes.mobileArrowDown}
-                  onClick={handleDropdown.bind(null, 2)}
+                  onClick={handleDropdown.bind(null, 1)}
                 >
                   <img
                     className={
-                      openedCategory === 2 ? classes.activeDropdownArrow : ''
+                      openedCategory === 1 ? classes.activeDropdownArrow : ''
                     }
                     src={downArrowIcon}
                     alt="dropdown arrow"
@@ -357,6 +229,124 @@ const NavBar = () => {
                     height="10"
                   />
                 </span>
+              </div>
+              <div className={classes.catalogueMenuWrapper}>
+                <div
+                  className={`${classes.catalogueMenu} ${
+                    openedCategory === 1 ? classes.activeDropdownMenu : ''
+                  }`}
+                >
+                  <div className={classes.menuContainer}>
+                    <div>
+                      <Link to="/categories/consoles">
+                        <h3>Consoles</h3>
+                      </Link>
+                      {renderConsoles}
+                    </div>
+                    <div>
+                      <Link to="/categories/games">
+                        <h3>Games</h3>
+                      </Link>
+                      {renderGames}
+                    </div>
+                    <div>
+                      <Link to="/categories/gaming_monitors_and_TV">
+                        <h3>Gaming Monitors & TV</h3>
+                      </Link>
+                      {renderGamingMonitors}
+                    </div>
+                  </div>
+
+                  <div className={classes.menuContainer}>
+                    <div>
+                      <Link to="/categories/gaming_laptops">
+                        <h3>Gaming Laptops</h3>
+                      </Link>
+                      {renderGamingLaptops}
+                    </div>
+                    <div>
+                      <Link to="/categories/VR_gadgets">
+                        <h3>VR Gadgets</h3>
+                      </Link>
+                      {renderVRgadgets}
+                    </div>
+                    <div>
+                      <Link to="/categories/gaming_accessories">
+                        <h3>Gaming Accessories</h3>
+                      </Link>
+                      {renderGamingAccs}
+                    </div>
+                  </div>
+
+                  <div className={classes.menuContainer}>
+                    <div>
+                      <Link to="/categories/PC_components">
+                        <h3>PC Components</h3>
+                      </Link>
+                      {renderPCcomponents}
+                    </div>
+                    <div>
+                      <Link to="/categories/accessories">
+                        <h3>Accessories</h3>
+                      </Link>
+                      {renderAccessories}
+                    </div>
+                    <div>
+                      <Link to="/categories/scooters">
+                        <h3>Scooters</h3>
+                      </Link>
+                    </div>
+                    <div>
+                      <Link to="/categories/robots_and_toys">
+                        <h3>Robots & Toys</h3>
+                      </Link>
+                      {renderRobots}
+                    </div>
+                  </div>
+
+                  <div className={classes.menuContainer}>
+                    <div>
+                      <Link to="/categories/tablets">
+                        <h3>Tablets</h3>
+                      </Link>
+                      {renderTablets}
+                    </div>
+                    <div>
+                      <Link to="/categories/audio_systems">
+                        <h3>Audio Systems</h3>
+                      </Link>
+                      {renderAudioSys}
+                    </div>
+                    <div>
+                      <Link to="/categories/change_zone">
+                        <h3>Change Zone</h3>
+                      </Link>
+                      {renderChangeZone}
+                    </div>
+                    <div>
+                      <Link to="/categories/networking">
+                        <h3>Networking</h3>
+                      </Link>
+                      {renderNetworking}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li className={classes.category}>
+            <div className={classes.linkWrapper}>
+              <Link to="/categories/new" className={classes.title}>
+                New
+              </Link>
+            </div>
+          </li>
+
+          <li className={classes.category}>
+            <div className={classes.linkWrapper}>
+              <Link to="/categories/consoles" className={classes.title}>
+                Consoles
                 <span className={classes.arrowDown}>
                   <img
                     width="10"
@@ -365,8 +355,22 @@ const NavBar = () => {
                     alt="dropdown arrow"
                   />
                 </span>
-              </p>
-            </Link>
+              </Link>
+              <div
+                className={classes.mobileArrowDown}
+                onClick={handleDropdown.bind(null, 2)}
+              >
+                <img
+                  className={
+                    openedCategory === 2 ? classes.activeDropdownArrow : ''
+                  }
+                  src={downArrowIcon}
+                  alt="dropdown arrow"
+                  width="10"
+                  height="10"
+                />
+              </div>
+            </div>
             <div
               className={`${classes.categoryMenu} ${
                 openedCategory === 2 ? classes.activeDropdownMenu : ''
@@ -377,23 +381,9 @@ const NavBar = () => {
           </li>
 
           <li className={classes.category}>
-            <Link to="/categories/games">
-              <p className={classes.title}>
+            <div className={classes.linkWrapper}>
+              <Link to="/categories/games" className={classes.title}>
                 Games
-                <span
-                  className={classes.mobileArrowDown}
-                  onClick={handleDropdown.bind(null, 3)}
-                >
-                  <img
-                    className={
-                      openedCategory === 3 ? classes.activeDropdownArrow : ''
-                    }
-                    src={downArrowIcon}
-                    alt="dropdown arrow"
-                    width="10"
-                    height="10"
-                  />
-                </span>
                 <span className={classes.arrowDown}>
                   <img
                     width="10"
@@ -402,8 +392,22 @@ const NavBar = () => {
                     alt="dropdown arrow"
                   />
                 </span>
-              </p>
-            </Link>
+              </Link>
+              <div
+                className={classes.mobileArrowDown}
+                onClick={handleDropdown.bind(null, 3)}
+              >
+                <img
+                  className={
+                    openedCategory === 3 ? classes.activeDropdownArrow : ''
+                  }
+                  src={downArrowIcon}
+                  alt="dropdown arrow"
+                  width="10"
+                  height="10"
+                />
+              </div>
+            </div>
             <div
               className={`${classes.categoryMenu} ${
                 openedCategory === 3 ? classes.activeDropdownMenu : ''
@@ -414,9 +418,19 @@ const NavBar = () => {
           </li>
 
           <li className={classes.category}>
-            <Link to="/categories/robots_and_games">
-              <p className={classes.title}>
+            <div className={classes.linkWrapper}>
+              <Link to="/categories/robots_and_games" className={classes.title}>
                 Robots & Games
+                <span className={classes.arrowDown}>
+                  <img
+                    width="10"
+                    height="10"
+                    src={downArrowIcon}
+                    alt="dropdown arrow"
+                  />
+                </span>
+              </Link>
+              <div>
                 <span
                   className={classes.mobileArrowDown}
                   onClick={handleDropdown.bind(null, 4)}
@@ -431,16 +445,8 @@ const NavBar = () => {
                     height="10"
                   />
                 </span>
-                <span className={classes.arrowDown}>
-                  <img
-                    width="10"
-                    height="10"
-                    src={downArrowIcon}
-                    alt="dropdown arrow"
-                  />
-                </span>
-              </p>
-            </Link>
+              </div>
+            </div>
             <div
               className={`${classes.categoryMenu} ${
                 openedCategory === 4 ? classes.activeDropdownMenu : ''
@@ -451,9 +457,22 @@ const NavBar = () => {
           </li>
 
           <li className={classes.category}>
-            <Link to="/categories/gaming_accessories">
-              <p className={classes.title}>
+            <div className={classes.linkWrapper}>
+              <Link
+                to="/categories/gaming_accessories"
+                className={classes.title}
+              >
                 Gaming Accessories
+                <span className={classes.arrowDown}>
+                  <img
+                    width="10"
+                    height="10"
+                    src={downArrowIcon}
+                    alt="dropdown arrow"
+                  />
+                </span>
+              </Link>
+              <div>
                 <span
                   className={classes.mobileArrowDown}
                   onClick={handleDropdown.bind(null, 5)}
@@ -468,16 +487,8 @@ const NavBar = () => {
                     height="10"
                   />
                 </span>
-                <span className={classes.arrowDown}>
-                  <img
-                    width="10"
-                    height="10"
-                    src={downArrowIcon}
-                    alt="dropdown arrow"
-                  />
-                </span>
-              </p>
-            </Link>
+              </div>
+            </div>
             <div
               className={`${classes.categoryMenu} ${
                 openedCategory === 5 ? classes.activeDropdownMenu : ''
@@ -488,9 +499,22 @@ const NavBar = () => {
           </li>
 
           <li className={classes.category}>
-            <Link to="/categories/branded_accessories">
-              <p className={classes.title}>
+            <div className={classes.linkWrapper}>
+              <Link
+                to="/categories/branded_accessories"
+                className={classes.title}
+              >
                 Branded Accessories
+                <span className={classes.arrowDown}>
+                  <img
+                    width="10"
+                    height="10"
+                    src={downArrowIcon}
+                    alt="dropdown arrow"
+                  />
+                </span>
+              </Link>
+              <div>
                 <span
                   className={classes.mobileArrowDown}
                   onClick={handleDropdown.bind(null, 6)}
@@ -505,22 +529,14 @@ const NavBar = () => {
                     height="10"
                   />
                 </span>
-                <span className={classes.arrowDown}>
-                  <img
-                    width="10"
-                    height="10"
-                    src={downArrowIcon}
-                    alt="dropdown arrow"
-                  />
-                </span>
-              </p>
-            </Link>
-            <div
-              className={`${classes.categoryMenu} ${
-                openedCategory === 6 ? classes.activeDropdownMenu : ''
-              }`}
-            >
-              {renderBrandedAccs}
+              </div>
+              <div
+                className={`${classes.categoryMenu} ${
+                  openedCategory === 6 ? classes.activeDropdownMenu : ''
+                }`}
+              >
+                {renderBrandedAccs}
+              </div>
             </div>
           </li>
         </ul>

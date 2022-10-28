@@ -20,10 +20,6 @@ const ProductPage = () => {
   const [mainImage, setMainImage] = useState(mwCover);
   const [qty, setQty] = useState(1);
 
-  const changeQuantity = e => {
-    setQty(e.target.value);
-  };
-
   const addProductToCart = () => {
     const qtyInt = parseInt(qty);
     if (qtyInt < 1 || qtyInt > 99 || isNaN(qtyInt)) return;
@@ -34,6 +30,10 @@ const ProductPage = () => {
         quantity: qtyInt,
       })
     );
+  };
+
+  const changeQuantity = e => {
+    setQty(e.target.value);
   };
 
   return (

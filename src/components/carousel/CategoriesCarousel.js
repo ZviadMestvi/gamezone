@@ -22,7 +22,7 @@ const CategoriesCarousel = () => {
                     rgba(0, 0, 0, 0.9)), url(${consolesBg})`,
             }}
           >
-            <h2>Consoles</h2>
+            Consoles
           </Link>
         </div>
         <div className={classes.categoryWrapper}>
@@ -35,9 +35,8 @@ const CategoriesCarousel = () => {
                   rgba(0, 0, 0, 0.9)), url(${gamesBg})`,
             }}
           >
-            <h2>Games</h2>
+            Games
           </Link>
-
           <Link
             to={`/categories/gamingLaptops`}
             state={{ title: 'Gaming Laptops', category: 'gamingLaptops' }}
@@ -47,7 +46,7 @@ const CategoriesCarousel = () => {
                     rgba(0, 0, 0, 0.9)), url(${laptopsBg})`,
             }}
           >
-            <h2>Gaming laptops</h2>
+            Gaming laptops
           </Link>
         </div>
 
@@ -64,7 +63,7 @@ const CategoriesCarousel = () => {
                     rgba(0, 0, 0, 0.9)), url(${monitorsBg})`,
             }}
           >
-            <h2>Gaming monitors & TV</h2>
+            Gaming Monitors & TV
           </Link>
         </div>
 
@@ -78,7 +77,7 @@ const CategoriesCarousel = () => {
                     rgba(0, 0, 0, 0.9)), url(${vrBg})`,
             }}
           >
-            <h2>VR gadgets</h2>
+            VR Gadgets
           </Link>
           <Link
             to={`/categories/gamingAccessories`}
@@ -92,7 +91,7 @@ const CategoriesCarousel = () => {
                     rgba(0, 0, 0, 0.9)), url(${accessoriesBg})`,
             }}
           >
-            <h2>Gaming accessories</h2>
+            Gaming Accessories
           </Link>
         </div>
       </div>

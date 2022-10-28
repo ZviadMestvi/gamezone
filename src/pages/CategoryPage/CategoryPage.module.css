@@ -294,9 +294,26 @@
     margin: 0;
     width: 100%;
   }
+
+  .sortBtns {
+    flex-direction: column;
+  }
+
+  .activeSortBtn {
+    border-left: 1px solid var(--light-blue) !important;
+    border-bottom: 0 !important;
+  }
 }
 
 @media only screen and (max-width: 499px) {
+  .mainTitle {
+    line-height: 1;
+  }
+
+  .mainTitle span {
+    margin-top: 5px;
+  }
+
   .productsWrapper {
     grid-template-columns: auto;
   }
