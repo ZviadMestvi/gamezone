@@ -6,7 +6,16 @@ import { addToCart } from '../../store/mainSlice';
 import classes from './ProductPage.module.css';
 import products from '../../data/Products.json';
 import mwCover from '../../assets/productsAssets/cod-mw2019/cod-mwCover.webp';
-import bfCover from '../../assets/productsAssets/bf2042-cover.webp';
+import mwPoster1 from '../../assets/productsAssets/cod-mw2019/cod-mw2019-pic1.webp';
+import mwPoster2 from '../../assets/productsAssets/cod-mw2019/cod-mw2019-pic2.webp';
+import mwPoster3 from '../../assets/productsAssets/cod-mw2019/cod-mw2019-pic3.webp';
+import mwPoster4 from '../../assets/productsAssets/cod-mw2019/cod-mw2019-pic4.webp';
+import mwPoster5 from '../../assets/productsAssets/cod-mw2019/cod-mw2019-pic5.webp';
+import mwPoster6 from '../../assets/productsAssets/cod-mw2019/cod-mw2019-pic6.webp';
+import mwPoster7 from '../../assets/productsAssets/cod-mw2019/cod-mw2019-pic7.webp';
+import mwPoster8 from '../../assets/productsAssets/cod-mw2019/cod-mw2019-pic8.webp';
+import mwPoster9 from '../../assets/productsAssets/cod-mw2019/cod-mw2019-pic9.webp';
+import mwPoster10 from '../../assets/productsAssets/cod-mw2019/cod-mw2019-pic10.webp';
 import cartIcon from '../../assets/shoppingCartIcon.svg';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
@@ -64,47 +73,113 @@ const ProductPage = () => {
                         alt="call of duty: modern warfare cover"
                       />
                     </li>
-                    <li onClick={() => setMainImage(bfCover)}>
+                    <li onClick={() => setMainImage(mwPoster1)}>
                       <img
                         className={
-                          mainImage === bfCover ? classes.activeImage : ''
+                          mainImage === mwPoster1 ? classes.activeImage : ''
                         }
                         width="90"
-                        height="79"
-                        src={bfCover}
+                        height="51"
+                        src={mwPoster1}
                         alt="call of duty: modern warfare cover"
                       />
                     </li>
-                    <li onClick={() => setMainImage(mwCover)}>
+                    <li onClick={() => setMainImage(mwPoster2)}>
                       <img
                         className={
-                          mainImage === mwCover ? classes.activeImage : ''
+                          mainImage === mwPoster2 ? classes.activeImage : ''
                         }
                         width="90"
-                        height="79"
-                        src={mwCover}
+                        height="51"
+                        src={mwPoster2}
                         alt="call of duty: modern warfare cover"
                       />
                     </li>
-                    <li onClick={() => setMainImage(bfCover)}>
+                    <li onClick={() => setMainImage(mwPoster3)}>
                       <img
                         className={
-                          mainImage === bfCover ? classes.activeImage : ''
+                          mainImage === mwPoster3 ? classes.activeImage : ''
                         }
                         width="90"
-                        height="79"
-                        src={bfCover}
+                        height="51"
+                        src={mwPoster3}
                         alt="call of duty: modern warfare cover"
                       />
                     </li>
-                    <li onClick={() => setMainImage(mwCover)}>
+                    <li onClick={() => setMainImage(mwPoster4)}>
                       <img
                         className={
-                          mainImage === mwCover ? classes.activeImage : ''
+                          mainImage === mwPoster4 ? classes.activeImage : ''
                         }
                         width="90"
-                        height="79"
-                        src={mwCover}
+                        height="51"
+                        src={mwPoster4}
+                        alt="call of duty: modern warfare cover"
+                      />
+                    </li>
+                    <li onClick={() => setMainImage(mwPoster5)}>
+                      <img
+                        className={
+                          mainImage === mwPoster5 ? classes.activeImage : ''
+                        }
+                        width="90"
+                        height="51"
+                        src={mwPoster5}
+                        alt="call of duty: modern warfare cover"
+                      />
+                    </li>
+                    <li onClick={() => setMainImage(mwPoster6)}>
+                      <img
+                        className={
+                          mainImage === mwPoster6 ? classes.activeImage : ''
+                        }
+                        width="90"
+                        height="51"
+                        src={mwPoster6}
+                        alt="call of duty: modern warfare cover"
+                      />
+                    </li>
+                    <li onClick={() => setMainImage(mwPoster7)}>
+                      <img
+                        className={
+                          mainImage === mwPoster7 ? classes.activeImage : ''
+                        }
+                        width="90"
+                        height="51"
+                        src={mwPoster7}
+                        alt="call of duty: modern warfare cover"
+                      />
+                    </li>
+                    <li onClick={() => setMainImage(mwPoster8)}>
+                      <img
+                        className={
+                          mainImage === mwPoster8 ? classes.activeImage : ''
+                        }
+                        width="90"
+                        height="51"
+                        src={mwPoster8}
+                        alt="call of duty: modern warfare cover"
+                      />
+                    </li>
+                    <li onClick={() => setMainImage(mwPoster9)}>
+                      <img
+                        className={
+                          mainImage === mwPoster9 ? classes.activeImage : ''
+                        }
+                        width="90"
+                        height="51"
+                        src={mwPoster9}
+                        alt="call of duty: modern warfare cover"
+                      />
+                    </li>
+                    <li onClick={() => setMainImage(mwPoster10)}>
+                      <img
+                        className={
+                          mainImage === mwPoster10 ? classes.activeImage : ''
+                        }
+                        width="90"
+                        height="51"
+                        src={mwPoster10}
                         alt="call of duty: modern warfare cover"
                       />
                     </li>
@@ -114,7 +189,6 @@ const ProductPage = () => {
                 <div className={classes.mainImage}>
                   <img
                     width="460"
-                    height="402"
                     src={mainImage}
                     alt="call of duty: modern warfare cover"
                   />

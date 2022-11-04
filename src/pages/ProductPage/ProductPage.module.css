@@ -51,7 +51,22 @@
 .allImages {
   border: 0;
   border-right: 4px solid #1b1d1e;
-  padding: 18px 15px 25px 22px;
+  padding: 18px 22px 25px 22px;
+  max-height: 485px;
+  overflow: auto;
+}
+
+.allImages::-webkit-scrollbar {
+  width: 4px;
+}
+
+.allImages::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: var(--light);
+}
+
+.allImages::-webkit-scrollbar-thumb:hover {
+  background: var(--light);
 }
 
 .allImages ul li {
@@ -69,11 +84,12 @@
 }
 
 .mainImage {
-  padding: 18px 20px 0 0;
+  padding: 18px 20px 0 16px;
 }
 
 .mainImage img {
-  width: 460px;
+  width: 100%;
+  max-width: 460px;
 }
 
 /* Product images section */
